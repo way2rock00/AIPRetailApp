@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="PlannedOrderApp" id="com.company.PlannedOrderApp"
+                   appControllerFolder="ApplicationController"
+                   listener-class="deloitte.retail.application.LifeCycleListenerImpl">
+  <adfmf:featureReference refId="deloitte.retail.Login" id="fr1"/>
+</adfmf:application>

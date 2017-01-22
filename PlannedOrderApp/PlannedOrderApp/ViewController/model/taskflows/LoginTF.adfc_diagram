@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">Login</property>
+      <property
+         name="page">/pages/Login.amx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Login&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">270.59766</property>
+      <property
+         name="x">183.0</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">SummaryPG</property>
+      <property
+         name="page">/pages/SummaryPG.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SummaryPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">261.5459</property>
+      <property
+         name="x">477.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">loginSuccess</property>
+      <property
+         name="sdm:polyPoints">R50,224.0,270.24707,436.0,261.1953,L50</property>
+   </ControlFlowCase>
+</SDM>
