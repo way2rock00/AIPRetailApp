@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.2.1" id="DataBindings"
+             SeparateXMLFiles="false" Package="deloitte.retail.mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/pages/SummaryPG.amx" usageId="deloitte_retail_mobile_SummaryPGPageDef"/>
+    <page path="/pages/OrderHeaderList.amx" usageId="deloitte_retail_mobile_OrderHeaderListPageDef"/>
+    <page path="/pages/OrderDetails.amx" usageId="deloitte_retail_mobile_OrderDetailsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="deloitte_retail_mobile_SummaryPGPageDef" path="pages.SummaryPGPageDef"/>
+    <page id="deloitte_retail_mobile_OrderHeaderListPageDef" path="pages.OrderHeaderListPageDef"/>
+    <page id="deloitte_retail_mobile_OrderDetailsPageDef" path="pages.OrderDetailsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="OrderDetailsService" path="deloitte.retail.mobile.OrderDetailsService"/>
+    <dc id="OrderListService" path="deloitte.retail.mobile.OrderListService"/>
+    <dc id="PlannedOrderSummaryService" path="deloitte.retail.mobile.PlannedOrderSummaryService"/>
+  </dataControlUsages>
+</Application>

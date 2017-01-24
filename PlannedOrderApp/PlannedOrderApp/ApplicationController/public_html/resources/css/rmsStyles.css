@@ -45,13 +45,13 @@
 
 .xxRobotoFieldTitle {
     font-family: xxRobotoLight !important;
-    font-size: 14px !important;
+    font-size: 11px !important;
     color: #999999 !important;
 }
 
 .xxRobotoGroupHeader {
     font-family: xxRobotoMedium !important;
-    font-size: 25px !important;
+    font-size: 18px !important;
     color: #000000 !important;
     text-wrap: normal !important;
     overflow: visible !important;
@@ -72,7 +72,7 @@
 
 .xxRobotoFieldValue {
     font-family: xxRobotoRegular !important;
-    font-size: 18px !important;
+    font-size: 14px !important;
     color: #000000 !important;
     text-wrap: normal !important;
     overflow: visible !important;

@@ -2,14 +2,57 @@
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
-    <amx:facet name="header">
-      <amx:outputText value="Header" id="ot1"/>
-    </amx:facet>
-    <amx:facet name="primary">
-      <amx:commandButton id="cb1"/>
-    </amx:facet>
-    <amx:facet name="secondary">
-      <amx:commandButton id="cb2"/>
-    </amx:facet>
-  </amx:panelPage>
+        <amx:facet name="header">
+            <amx:panelGroupLayout id="pgl2" layout="vertical">
+                <amx:outputText value="Welcome" id="ot1" styleClass="headertextwhite"
+                                inlineStyle="text-align:center;font-size:16px;"/>
+                <amx:outputText value="#{applicationScope.loggedInUser}" id="ot4" styleClass="headertextwhite"
+                                inlineStyle="text-align:center;padding-top:2px;"/>
+            </amx:panelGroupLayout>
+        </amx:facet>
+        <amx:facet name="primary">
+            <amx:commandLink id="cl134" shortDesc="menu">
+                <amx:outputHtml id="oh1" styleClass="fa fa-reorder fa-1x" inlineStyle="color:#ffffff;"/>
+            </amx:commandLink>
+        </amx:facet>
+        <amx:panelGroupLayout id="pgl3" layout="vertical" styleClass="xxRobotoSubHeader">
+            <amx:tableLayout id="tl2" width="100%">
+                <amx:rowLayout id="rl2">
+                    <amx:cellFormat id="cf3" width="100%" halign="center" valign="middle">
+                        <amx:outputText value="Order Summary" id="ot2"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelGroupLayout>
+        <amx:listView var="row" value="#{bindings.plannedOrderSummary.collectionModel}"
+                      fetchSize="#{bindings.plannedOrderSummary.rangeSize}"
+                      selectedRowKeys="#{bindings.plannedOrderSummary.collectionModel.selectedRow}"
+                      initialScrollRowKeys="#{bindings.plannedOrderSummary.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.plannedOrderSummary.collectionModel.makeCurrent}" showMoreStrategy="off"
+                      bufferStrategy="viewport" id="lv2">
+            <amx:listItem id="li2" action="toOrderHeaderList"
+                          inlineStyle="min-height:30px;padding-top:8px;padding-bottom:8px;border-bottom-color:#86BC25;border-bottom-width:thin;border-bottom-style:solid;">
+                <amx:tableLayout id="tl10" width="100%" inlineStyle="vertical-align:middle;">
+                    <amx:rowLayout id="rl10">
+                        <amx:cellFormat id="cf13" width="15%" valign="middle" halign="center">
+                            <amx:outputHtml id="oh4" styleClass="fa fa-file-text-o fa-x" inlineStyle="color:GrayText;"/>
+                            <amx:spacer id="s1" width="5"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf2" halign="start" width="70%" valign="middle">
+                            <amx:outputText value="#{row.status}" id="ot5" styleClass="xxRobotoFieldValue"
+                                            inlineStyle="vertical-align:middle;font-size:18px"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf4" width="auto" halign="center">
+                            <amx:commandButton text="#{row.statusCount}" id="cb3"
+                                               inlineStyle="vertical-align:middle; color:White; font-size:20px; text-align:center; font-weight:bold; background-color:#2f8dea;"
+                                               styleClass="round-button"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                <amx:setPropertyListener id="spl4" from="#{row.status}" to="#{pageFlowScope.selectedStatus}"/>
+                <amx:setPropertyListener id="spl6" from="N" to="#{pageFlowScope.showMessage}"/>
+            </amx:listItem>
+        </amx:listView>
+        <!--<amx:outputText value="#{pageFlowScope.strDebug}" id="ot3"/>-->
+    </amx:panelPage>
 </amx:view>

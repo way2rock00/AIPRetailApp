@@ -3,5 +3,5 @@
                    version="1.0" name="PlannedOrderApp" id="com.company.PlannedOrderApp"
                    appControllerFolder="ApplicationController"
                    listener-class="deloitte.retail.application.LifeCycleListenerImpl">
-  <adfmf:featureReference refId="deloitte.retail.Login" id="fr1"/>
+  <adfmf:featureReference refId="deloitte.retail.Login" id="fr1" showOnSpringboard="false" showOnNavigationBar="false"/>
 </adfmf:application>

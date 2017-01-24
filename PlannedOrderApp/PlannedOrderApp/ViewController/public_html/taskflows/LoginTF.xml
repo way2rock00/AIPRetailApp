@@ -13,11 +13,42 @@
     <view id="SummaryPG">
       <page>/pages/SummaryPG.amx</page>
     </view>
+    <view id="OrderHeaderList">
+      <page>/pages/OrderHeaderList.amx</page>
+    </view>
+    <view id="OrderDetails">
+      <page>/pages/OrderDetails.amx</page>
+    </view>
     <control-flow-rule id="__2">
       <from-activity-id>Login</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>loginSuccess</from-outcome>
         <to-activity-id>SummaryPG</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>SummaryPG</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>toOrderHeaderList</from-outcome>
+        <to-activity-id>OrderHeaderList</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>OrderHeaderList</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>backToSummary</from-outcome>
+        <to-activity-id>SummaryPG</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>toOrderDetails</from-outcome>
+        <to-activity-id>OrderDetails</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>OrderDetails</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>backToOrderList</from-outcome>
+        <to-activity-id>OrderHeaderList</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>
