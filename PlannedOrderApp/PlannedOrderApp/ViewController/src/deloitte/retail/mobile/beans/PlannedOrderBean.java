@@ -5,6 +5,7 @@ import deloitte.retail.mobile.utility.RestURIs;
 import deloitte.retail.mobile.utility.ServiceManager;
 
 import oracle.adfmf.amx.event.ActionEvent;
+import oracle.adfmf.amx.event.ValueChangeEvent;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.json.JSONObject;
 
@@ -35,6 +36,7 @@ public class PlannedOrderBean {
         //Supplier Check
         String strReturnStatus = "E";
         String strLoginNumber = "";
+        String strErrorMessage = "";
         System.out.println("LoginIn_buttonClick start");
         String userName = AdfmfJavaUtilities.getELValue("#{pageFlowScope.userName}").toString();
         String password = AdfmfJavaUtilities.getELValue("#{pageFlowScope.password}").toString();
@@ -57,6 +59,11 @@ public class PlannedOrderBean {
                     if(jsonObject.getString("X_ENTITY_NUM") != null){
                         strLoginNumber = jsonObject.getString("X_ENTITY_NUM");
                     }
+                    if(jsonObject.getString("X_RETURN_MSG") != null){
+                        strErrorMessage = jsonObject.getString("X_RETURN_MSG");
+                    }
+                    
+                    
                 }
             }
             catch(Exception e){
@@ -72,9 +79,12 @@ public class PlannedOrderBean {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.LoginMessage}", null);
             AdfmfJavaUtilities.setELValue("#{applicationScope.loggedInUser}", userName);
             AdfmfJavaUtilities.setELValue("#{applicationScope.loggedInBuyerNumber}", strLoginNumber);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.showSearchRegion}", "false");
         }
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.strDebug}", strDebug);
 
         System.out.println("LoginIn_buttonClick end");
-    }    
+    }   
+    
+
 }

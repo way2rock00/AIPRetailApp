@@ -64,6 +64,10 @@ public class PlannedOrderSummaryService {
             strDebug = strDebug + ":Error:"+e.getMessage();
         }     
         plannedOrderArray = plannedOrderSummaryList.toArray(new PlannedOrderSummaryInfo[plannedOrderSummaryList.size()]);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchFieldsValid}","true");
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.deliveryFromDateError}","false");     
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.deliveryToDateError}","false");     
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.fetchSizeError}","false");    
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.strDebug}", strDebug);
         return plannedOrderArray;
     }

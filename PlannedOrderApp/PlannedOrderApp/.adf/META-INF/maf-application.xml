@@ -4,4 +4,16 @@
                    appControllerFolder="ApplicationController"
                    listener-class="deloitte.retail.application.LifeCycleListenerImpl">
   <adfmf:featureReference refId="deloitte.retail.Login" id="fr1" showOnSpringboard="false" showOnNavigationBar="false"/>
+  <adfmf:featureReference refId="deloitte.retail.Springboard" id="fr2" showOnNavigationBar="false"
+                          showOnSpringboard="false"/>
+  <adfmf:featureReference refId="deloitte.retail.Home" id="fr3" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="deloitte.retail.Preference" id="fr4" showOnNavigationBar="false"
+                          showOnSpringboard="false"/>
+  <adfmf:preferences/>
+  <adfmf:navigation>
+    <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
+                       width="300">
+      <adfmf:springboardFeatureReference refId="deloitte.retail.Springboard" id="sfr1"/>
+    </adfmf:springboard>
+  </adfmf:navigation>
 </adfmf:application>

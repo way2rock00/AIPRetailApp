@@ -5,4 +5,19 @@
       <adfmf:amx file="taskflows/LoginTF.xml#LoginTF"/>
     </adfmf:content>
   </adfmf:feature>
+  <adfmf:feature id="deloitte.retail.Springboard" name="Springboard">
+    <adfmf:content id="deloitte.retail.Springboard.1">
+      <adfmf:amx file="taskflows/SpringboardTF.xml#SpringboardTF"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="deloitte.retail.Home" name="Home">
+    <adfmf:content id="deloitte.retail.Home.1">
+      <adfmf:amx file="taskflows/HomeTF.xml#HomeTF"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="deloitte.retail.Preference" name="Preference">
+    <adfmf:content id="deloitte.retail.Preference.1">
+      <adfmf:amx file="taskflows/PreferenceTF.xml#PreferenceTF"/>
+    </adfmf:content>
+  </adfmf:feature>
 </adfmf:features>

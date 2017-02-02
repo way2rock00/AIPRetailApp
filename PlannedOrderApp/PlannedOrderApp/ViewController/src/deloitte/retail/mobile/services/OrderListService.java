@@ -31,13 +31,64 @@ public class OrderListService {
         ServiceManager serviceManager = new ServiceManager();
         String buyer = (String)AdfmfJavaUtilities.getELValue("#{applicationScope.loggedInBuyerNumber}");
         String selectedStatus = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.selectedStatus}");
-        String url = RestURIs.getOrderHeaderDetailsURL(selectedStatus, buyer);
+        strDebug = strDebug + ":1:"+selectedStatus;
+        String url = "";
+        String strOrderType = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchOrderType}");
+        strOrderType = "PO";
+        String strStatus = AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchStatus}") == null ? "-999" :
+                           (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchStatus}");
+        
+        String strSource = AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchSource}") == null ? "-999" :
+                            (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchSource}");
+        
+        String strDestination = AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchDestination}")== null ? "-999" :
+                                (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchDestination}");
+        
+        String strDeliveryDateFrom = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchDeliveryFromDate}");
+        String strDeliveryDateTo = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchDeliveryToDate}");
+        
+        String strOrderNumberFrom =   AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchOrderNumberFrom}")== null ? "-999" :
+                                    (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchOrderNumberFrom}");
+        
+        String strOrderNumberTo = AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchOrderNumberTo}")== null ? "-999" :
+                                    (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchOrderNumberTo}");
+        
+        String strCaseUPCFrom = AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchCaseUPCFrom}")== null ? "-999" :
+                                (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchCaseUPCFrom}");
+        
+        String strCaseUPCTo =    AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchCaseUPCTo}")== null ? "-999" :
+                                (String) AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchCaseUPCTo}");
+        
+        String strTruckNumber = AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchTruckNumber}")== null ? "-999" :
+                                (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchTruckNumber}");  
+        
+        String strFetchSize="25";        
+        if("".equalsIgnoreCase(selectedStatus)){
+            url = RestURIs.getOrderSearchURL(strOrderType, strStatus, strDestination, 
+                                             strDeliveryDateFrom, strDeliveryDateTo, strOrderNumberFrom, strOrderNumberTo, 
+                                             strCaseUPCFrom, strCaseUPCTo, strTruckNumber, strFetchSize, buyer);
+        }
+        else {
+            url = RestURIs.getOrderHeaderDetailsURL(selectedStatus, buyer);
+        }
+        strDebug = strDebug +":ur:"+url;
         String jsonArrayAsString = serviceManager.invokeREAD(url);
         try {
             strDebug = strDebug +":2:";
-            JSONObject jsonObject = new JSONObject(jsonArrayAsString);
-            JSONObject parent = jsonObject.getJSONObject("X_PLANNED_ORD_TAB");
-            JSONArray nodeArray = parent.getJSONArray("X_PLANNED_ORD_TAB_ITEM");
+            JSONObject jsonObject = null;
+            JSONObject parent = null;
+            JSONArray nodeArray = null;
+            if("".equalsIgnoreCase(selectedStatus)){
+                jsonObject = new JSONObject(jsonArrayAsString);
+                parent = jsonObject.getJSONObject("P_AIP_ORD_HDR_TBL");
+                nodeArray = parent.getJSONArray("P_AIP_ORD_HDR_TBL_ITEM");            
+            }
+            else {
+                jsonObject = new JSONObject(jsonArrayAsString);
+                parent = jsonObject.getJSONObject("X_PLANNED_ORD_TAB");
+                nodeArray = parent.getJSONArray("X_PLANNED_ORD_TAB_ITEM");
+            }
+
 
             int size = nodeArray.length();
             strDebug = strDebug +":size:"+size;

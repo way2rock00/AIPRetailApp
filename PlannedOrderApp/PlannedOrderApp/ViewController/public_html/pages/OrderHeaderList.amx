@@ -8,12 +8,12 @@
                             inlineStyle="font-size:20px;flex-wrap:wrap; overflow-wrap:break-word; text-align:center; border-bottom-width:0px; border-bottom-style:hidden; border-bottom-color:transparent;"/>
         </amx:facet>
         <amx:facet name="primary">
-            <amx:commandLink id="cl1" action="backToSummary" >
+            <amx:commandLink id="cl1" action="#{pageFlowScope.HomeBean.backToSummary}" >
                 <amx:outputHtml id="oh1" styleClass="fa fa-arrow-left fa-1x" inlineStyle="color:#ffffff;"/>
             </amx:commandLink>
-            <amx:commandLink id="cl134" shortDesc="menu">
+            <!--<amx:commandLink id="cl134" shortDesc="menu">
                 <amx:outputHtml id="oh2" styleClass="fa fa-reorder fa-1x" inlineStyle="color:#ffffff;"/>
-            </amx:commandLink>
+            </amx:commandLink>-->
         </amx:facet>
         <amx:listView var="row" value="#{bindings.orderHeadersList.collectionModel}"
                       fetchSize="#{bindings.orderHeadersList.rangeSize}"
@@ -121,5 +121,6 @@
                 <amx:setPropertyListener id="spl4" from="1" to="#{pageFlowScope.selectedOrderNum}"/>
             </amx:listItem>
         </amx:listView>        
+        <!--<amx:outputText value="#{pageFlowScope.strDebug}" id="ot3"/>-->        
   </amx:panelPage>
 </amx:view>

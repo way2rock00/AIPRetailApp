@@ -10,45 +10,25 @@
     <view id="Login">
       <page>/pages/Login.amx</page>
     </view>
-    <view id="SummaryPG">
-      <page>/pages/SummaryPG.amx</page>
-    </view>
-    <view id="OrderHeaderList">
-      <page>/pages/OrderHeaderList.amx</page>
-    </view>
-    <view id="OrderDetails">
-      <page>/pages/OrderDetails.amx</page>
-    </view>
+    <task-flow-call id="HomeTF">
+      <task-flow-reference>
+        <document>/taskflows/HomeTF.xml</document>
+        <id>HomeTF</id>
+      </task-flow-reference>
+      <input-parameter id="__7">
+        <name>LoginMessage</name>
+        <value>#{pageFlowScope.LoginMessage}</value>
+      </input-parameter>
+      <input-parameter id="__8">
+        <name>showSearchRegion</name>
+        <value>#{pageFlowScope.showSearchRegion}</value>
+      </input-parameter>
+    </task-flow-call>
     <control-flow-rule id="__2">
       <from-activity-id>Login</from-activity-id>
-      <control-flow-case id="__3">
+      <control-flow-case id="__4">
         <from-outcome>loginSuccess</from-outcome>
-        <to-activity-id>SummaryPG</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__4">
-      <from-activity-id>SummaryPG</from-activity-id>
-      <control-flow-case id="__5">
-        <from-outcome>toOrderHeaderList</from-outcome>
-        <to-activity-id>OrderHeaderList</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__6">
-      <from-activity-id>OrderHeaderList</from-activity-id>
-      <control-flow-case id="__7">
-        <from-outcome>backToSummary</from-outcome>
-        <to-activity-id>SummaryPG</to-activity-id>
-      </control-flow-case>
-      <control-flow-case id="__8">
-        <from-outcome>toOrderDetails</from-outcome>
-        <to-activity-id>OrderDetails</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__9">
-      <from-activity-id>OrderDetails</from-activity-id>
-      <control-flow-case id="__10">
-        <from-outcome>backToOrderList</from-outcome>
-        <to-activity-id>OrderHeaderList</to-activity-id>
+        <to-activity-id>HomeTF</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

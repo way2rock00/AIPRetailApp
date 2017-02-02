@@ -19,99 +19,31 @@
       <property
          name="x">39.0</property>
    </View>
-   <View
-      id="View3">
+   <TaskFlowCall
+      id="TaskFlowCall13">
       <property
-         name="activityId">SummaryPG</property>
+         name="taskFlowId">HomeTF</property>
       <property
-         name="page">/pages/SummaryPG.amx</property>
+         name="activityId">HomeTF</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>SummaryPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="documentReference">/taskflows/HomeTF.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>HomeTF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">253.84473</property>
+         name="y">256.44824</property>
       <property
-         name="x">298.0</property>
-   </View>
+         name="x">309.5</property>
+   </TaskFlowCall>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase4"
+      id="ControlFlowCase14"
       from="View2"
-      to="View3">
+      to="TaskFlowCall13">
       <property
          name="fromOutcome">loginSuccess</property>
       <property
-         name="sdm:polyPoints">R50,80.0,264.5459,257.0,253.49414,L50</property>
-   </ControlFlowCase>
-   <View
-      id="View5">
-      <property
-         name="activityId">OrderHeaderList</property>
-      <property
-         name="page">/pages/OrderHeaderList.amx</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>OrderHeaderList&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">247.14355</property>
-      <property
-         name="x">494.0</property>
-   </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase6"
-      from="View3"
-      to="View5">
-      <property
-         name="fromOutcome">toOrderHeaderList</property>
-      <property
-         name="sdm:polyPoints">R46,339.0,249.99414,452.79425,243.29297,L46</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase7"
-      from="View5"
-      to="View3">
-      <property
-         name="fromOutcome">backToSummary</property>
-      <property
-         name="sdm:polyPoints">L54,453.0,250.29297,339.20557,256.99414,R54</property>
-   </ControlFlowCase>
-   <View
-      id="View8">
-      <property
-         name="activityId">OrderDetails</property>
-      <property
-         name="page">/pages/OrderDetails.amx</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>OrderDetails&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">239.84473</property>
-      <property
-         name="x">733.0</property>
-   </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase9"
-      from="View5"
-      to="View8">
-      <property
-         name="fromOutcome">toOrderDetails</property>
-      <property
-         name="sdm:polyPoints">R50,535.0,246.79297,692.0,239.49414,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase10"
-      from="View8"
-      to="View5">
-      <property
-         name="fromOutcome">backToOrderList</property>
-      <property
-         name="sdm:polyPoints">L54,692.0,242.99414,535.1626,250.29297,R54</property>
+         name="sdm:polyPoints">R50,80.0,264.5459,268.5,256.09766,L50</property>
    </ControlFlowCase>
 </SDM>
