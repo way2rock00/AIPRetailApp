@@ -54,8 +54,12 @@
                 <amx:tableLayout id="tl3" width="100%">
                     <amx:rowLayout id="rl3">
                         <amx:cellFormat styleClass="cell-border" id="cf7" width="95%">
-                            <amx:inputText styleClass="username_field" id="it2" inputType="text"
-                                           value="#{pageFlowScope.searchSource}"/>
+                            <!--<amx:inputText styleClass="username_field" id="it2" inputType="text"
+                                           value="#{pageFlowScope.searchSource}"/>-->
+                                <amx:selectOneChoice value="#{pageFlowScope.searchSource}" 
+                                                     id="soc1">
+                                    <amx:selectItems value="#{bindings.sourceDesc.items}" id="si1"/>
+                                </amx:selectOneChoice>                                           
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
@@ -65,8 +69,12 @@
                 <amx:tableLayout id="tl4" width="100%">
                     <amx:rowLayout id="rl4">
                         <amx:cellFormat styleClass="cell-border" id="cf8" width="95%">
-                            <amx:inputText styleClass="username_field" id="it3" inputType="text"
-                                               value="#{pageFlowScope.searchDestination}"/>
+                            <!--<amx:inputText styleClass="username_field" id="it3" inputType="text"
+                                               value="#{pageFlowScope.searchDestination}"/>-->
+                            <amx:selectOneChoice value="#{pageFlowScope.searchDestination}" 
+                                                 id="soc2" inlineStyle="color:##86BC25" styleClass="test">
+                                <amx:selectItems value="#{bindings.destinationDesc.items}" id="si2"/>
+                            </amx:selectOneChoice>                                               
                             </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
@@ -180,7 +188,7 @@
                 <amx:tableLayout id="tl17" width="100%">
                     <amx:rowLayout id="rl16">
                         <amx:cellFormat styleClass="cell-border" id="cf19" width="90%">
-                            <amx:outputText value="Please set Fetch Size in preference form" id="ot9" inlineStyle="color:Red;"/>
+                            <amx:outputText value="Please set Record Limit in Preferences" id="ot9" inlineStyle="color:Red;"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
@@ -211,7 +219,18 @@
                     </amx:commandButton>
                 </amx:cellFormat>
             </amx:rowLayout>
-        </amx:tableLayout>        
+        </amx:tableLayout>    
+        <amx:panelLabelAndMessage label="" id="plam14" showRequired="false" rendered="true">
+            <amx:tableLayout id="tl18" width="100%">
+                <amx:rowLayout id="rl17">
+                    <amx:cellFormat styleClass="cell-border" id="cf20" width="90%" halign="center">
+                        <amx:spacer id="s1" height="10"/>
+                        <amx:outputText value="#{pageFlowScope.serviceErrMsg}" id="ot10" inlineStyle="color:gray;"/>
+                        <amx:spacer id="s2" height="10"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelLabelAndMessage>       
         <amx:listView var="row" value="#{bindings.plannedOrderSummary.collectionModel}"
                       fetchSize="#{bindings.plannedOrderSummary.rangeSize}"
                       selectedRowKeys="#{bindings.plannedOrderSummary.collectionModel.selectedRow}"
@@ -224,7 +243,7 @@
                     <amx:rowLayout id="rl14">
                         <amx:cellFormat id="cf13" width="15%" valign="middle" halign="center">
                             <amx:outputHtml id="oh4" styleClass="fa fa-file-text-o fa-x" inlineStyle="color:GrayText;"/>
-                            <amx:spacer id="s1" width="5"/>
+                            <amx:spacer id="s3" width="5"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf2" halign="start" width="70%" valign="middle">
                             <amx:outputText value="#{row.status}" id="ot5" styleClass="xxRobotoFieldValue"
@@ -242,8 +261,10 @@
             </amx:listItem>
         </amx:listView>
         <!--<amx:outputText value="#{pageFlowScope.strDebug}" id="ot3"/>
-        <amx:outputText value="S:#{pageFlowScope.showMessage}:~:#{pageFlowScope.showSearchRegion}:S" id="ot6"/>-->
-        
-        
+        <amx:outputText value="S:#{pageFlowScope.showMessage}:~:#{pageFlowScope.showSearchRegion}:S" id="ot6"/>
+         --><!--<amx:outputText value="Test123:#{bindings.plannedOrderSummary.rangeSize}" id="ot10"/>--><!--
+        <amx:outputText value="RS:#{preferenceScope.application.UserSettings.RecordSize}" id="ot12"/>  
+        <amx:outputText value="DM:#{preferenceScope.application.UserSettings.DeliveryMonths}" id="ot13"/>  
+        <amx:outputText value="DD:#{pageFlowScope.strDateDebug}" id="ot11"/>-->           
     </amx:panelPage>
 </amx:view>

@@ -594,13 +594,11 @@ html[dir=ltr] .amx-inputText .field-value {
 html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
     border-width: 1px;
     border-radius: 5px;
-    border: #000000 !important;
     border-style: solid;
     -webkit-border-image: none;
     border-image: none;
     position: static;
     height: 30px;
-    background-image: url("../images/DownArrow.png");
     background-repeat: no-repeat;
     background-position: 98%;
     padding-left: 2px;
@@ -608,8 +606,9 @@ html[dir=ltr] .amx-selectOneChoice .selectItemsContainer {
     font-family: xxRobotoRegular;
     background-color: White;
     vertical-align: middle;
-    position: relative;
 }
+
+
 
 HTML[dir="ltr"] .amx-inputDate-trigger-dateTime {
     border-width: 1px;
@@ -729,4 +728,8 @@ keygen, select, select[size="0"], select[size="1"] {
 .amx-outputText.poShopFloorSubHeader {
     color: #1C75BC;
     font-weight: 400;
+}
+
+.amx-panelPage-header-overflowIcon{
+    display: none;
 }

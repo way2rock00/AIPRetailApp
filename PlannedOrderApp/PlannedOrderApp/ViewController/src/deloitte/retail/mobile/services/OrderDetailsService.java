@@ -22,6 +22,9 @@ public class OrderDetailsService {
         List<OrderHeaders> orderHeaderList = new ArrayList<OrderHeaders>();
         List<OrderLine> orderLineList = new ArrayList<OrderLine>();
         OrderHeaders orderHeaderArray[] = null;
+        String strServiceStatus = "";
+        String strServiceErrMsg = "";
+        resetServiceStatus();
         
         ServiceManager serviceManager = new ServiceManager();
         String selectedOrderNumber = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.selectedOrderNum}");
@@ -30,6 +33,14 @@ public class OrderDetailsService {
         try {
             strDebug = strDebug +":2:";
             JSONObject jsonObject = new JSONObject(jsonArrayAsString);
+            if (jsonObject.getString("X_RETURN_STATUS") != null)
+                strServiceStatus = jsonObject.getString("X_RETURN_STATUS");
+            
+            if (jsonObject.getString("X_RETURN_MSG") != null)
+                strServiceErrMsg = jsonObject.getString("X_RETURN_MSG");            
+            strDebug = strDebug + ":strServiceStatus:"+strServiceStatus+":strServiceErrMsg:"+strServiceErrMsg;
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.serviceErrMsg}", strServiceErrMsg);
+            
             JSONObject parent = jsonObject.getJSONObject("X_PLANNED_ORDER_TAB");
             JSONArray nodeArray = parent.getJSONArray("X_PLANNED_ORDER_TAB_ITEM");
 
@@ -175,4 +186,11 @@ public class OrderDetailsService {
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.strDebug}", strDebug);
         return orderHeaderArray;
     }
+    
+    public void resetServiceStatus(){
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.serviceStatus}", "");
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.serviceErrMsg}", "");
+    }  
+    
+    
 }

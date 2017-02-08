@@ -9,7 +9,12 @@
   <adfmf:featureReference refId="deloitte.retail.Home" id="fr3" showOnNavigationBar="false" showOnSpringboard="false"/>
   <adfmf:featureReference refId="deloitte.retail.Preference" id="fr4" showOnNavigationBar="false"
                           showOnSpringboard="false"/>
-  <adfmf:preferences/>
+  <adfmf:preferences>
+    <adfmf:preferenceGroup id="UserSettings" label="UserSettings">
+      <adfmf:preferenceText id="DeliveryMonths" label="DeliveryMonths"/>
+      <adfmf:preferenceNumber id="RecordSize" label="RecordSize"/>
+    </adfmf:preferenceGroup>
+  </adfmf:preferences>
   <adfmf:navigation>
     <adfmf:springboard enabled="true" showSpringboardAtStartup="false" displayGotoSpringboardControl="false"
                        width="300">

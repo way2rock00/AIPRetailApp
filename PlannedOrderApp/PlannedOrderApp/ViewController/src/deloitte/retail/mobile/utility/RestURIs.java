@@ -19,6 +19,9 @@ public class RestURIs {
     private static String OrderHeaderDetailsURL = "/XxRpmGetPlannedOrderDetail/GetOrderDetailRS";
     private static String OrderDetailsURL = "/XxRpmGetPlanOrderDetails/GetPlanOrderDetailsRS";
     private static String OrderSearchURL ="/XxRpmGetAIPOrderHdr/GetAIPOrderHdrRS";
+    private static String SourceURL ="/XxRpmGetPlanOrderSourceLov/GetPlanOrderSourceLovRS";
+    private static String DestinationURL ="/XxRpmGetPlanOrdDestinationLov/GetPlanOrdDestinationLovRS";
+    private static String SKUDetailsURL ="/XxRpmPlannedStoreDaySku/GetPlannedStoreDaySkuRS";    
     
     
     public static String getLoginURL(String userName,String password,String deviceId,
@@ -38,15 +41,29 @@ public class RestURIs {
         return OrderDetailsURL+"/"+strSelectedOrderNumber;
     }
     
-    public static String getOrderSearchURL(String strOrderType,String strStatus,//tempString strSource,
+    public static String getSKUDetailsURL(String strCaseUPC,String strSellableUPC,String strDeliveryDate,String strStoreId){
+        return SKUDetailsURL+"/"+convertStringToDateFormat(strDeliveryDate+"T")+"/"+strCaseUPC+"/"+strSellableUPC+"/"+strStoreId;
+    }
+    
+    public static String getOrderSearchURL(String strOrderType,String strStatus,String strSource,
                                            String strDestination,String strDelivDateFrom,String strDelivDateTo,
                                            String strOrderFrom,String strOrderTo,String strCaseUPCFrom,String strCaseUPCTo,
                                            String strTruckNum,String strFetchSize,String strPlanner){
-    return OrderSearchURL+"/"+convertString2URLFormat(strOrderType)+"/"+strStatus+//temp"/"+strSource+
-        "/"+strDestination+"/"+convertStringToDateFormat(strDelivDateFrom)+"/"+convertStringToDateFormat(strDelivDateTo)+
+        String strSDebug="Search:";
+    return OrderSearchURL+"/"+ convertString2URLFormat(strOrderType)+"/"+strStatus+"/"+convertString2URLFormat(strSource)+
+        "/"+convertString2URLFormat(strDestination)+"/"+convertStringToDateFormat(strDelivDateFrom+"T")+"/"+convertStringToDateFormat(strDelivDateTo+"T")+
            "/"+strOrderFrom+"/"+strOrderTo+"/"+strCaseUPCFrom+"/"+
         strCaseUPCTo+"/"+strTruckNum+"/"+strFetchSize+"/"+strPlanner;
     }
+    
+    public static String getLocationURL(String strType){
+        String strURL="";
+        if("SOURCE".equalsIgnoreCase(strType))
+        strURL = SourceURL+"/"+"1";
+        else if("DESTINATION".equalsIgnoreCase(strType))
+        strURL = DestinationURL+"/"+"1";
+        return strURL;
+    }   
     
 
     public static String convertString2URLFormat(String strInput) {
@@ -64,9 +81,10 @@ public class RestURIs {
     
     public static String convertStringToDateFormat(String strInput){
         String strRet = "-999";
+            try{
         strInput = strInput.substring(0, strInput.indexOf("T"));
-        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
-        try{
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        
             Date d1 = df.parse(strInput);
             df = new SimpleDateFormat("dd-MMM-YYYY");
             strRet = df.format(d1);

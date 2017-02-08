@@ -6,14 +6,17 @@
     <page path="/pages/OrderHeaderList.amx" usageId="deloitte_retail_mobile_OrderHeaderListPageDef"/>
     <page path="/pages/OrderDetails.amx" usageId="deloitte_retail_mobile_OrderDetailsPageDef"/>
     <page path="/pages/SpringboardPG.amx" usageId="deloitte_retail_mobile_SpringboardPGPageDef"/>
+    <page path="/pages/SKUDetails.amx" usageId="deloitte_retail_mobile_SKUDetailsPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="deloitte_retail_mobile_SummaryPGPageDef" path="pages.SummaryPGPageDef"/>
     <page id="deloitte_retail_mobile_OrderHeaderListPageDef" path="pages.OrderHeaderListPageDef"/>
     <page id="deloitte_retail_mobile_OrderDetailsPageDef" path="pages.OrderDetailsPageDef"/>
     <page id="deloitte_retail_mobile_SpringboardPGPageDef" path="taskflows.SpringboardPGPageDef"/>
+    <page id="deloitte_retail_mobile_SKUDetailsPageDef" path="pages.SKUDetailsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="SKUDetailsService" path="deloitte.retail.mobile.SKUDetailsService"/>
     <dc id="SpringboardDC" path="deloitte.retail.mobile.SpringboardDC"/>
     <dc id="ApplicationFeatures" path="deloitte.retail.application.ApplicationFeatures"/>
     <dc id="OrderDetailsService" path="deloitte.retail.mobile.OrderDetailsService"/>

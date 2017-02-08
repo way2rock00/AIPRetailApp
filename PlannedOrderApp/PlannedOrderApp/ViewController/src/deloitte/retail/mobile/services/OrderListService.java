@@ -24,11 +24,13 @@ public class OrderListService {
     
     public OrderHeaders[] getOrderHeadersList(){
         String strDebug="S1:";
+        String strDebug1="Debug2";
         List<OrderHeaders> orderHeaderList = new ArrayList<OrderHeaders>();
         List<OrderLine> orderLineList = new ArrayList<OrderLine>();
         OrderHeaders orderHeaderArray[] = null;
         
         ServiceManager serviceManager = new ServiceManager();
+            try {
         String buyer = (String)AdfmfJavaUtilities.getELValue("#{applicationScope.loggedInBuyerNumber}");
         String selectedStatus = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.selectedStatus}");
         strDebug = strDebug + ":1:"+selectedStatus;
@@ -62,9 +64,17 @@ public class OrderListService {
         String strTruckNumber = AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchTruckNumber}")== null ? "-999" :
                                 (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchTruckNumber}");  
         
-        String strFetchSize="25";        
+        String strFetchSize= (String)AdfmfJavaUtilities.getELValue("#{preferenceScope.application.UserSettings.RecordSize}");
+        
+        strDebug1 = "String1:"+strOrderType+":"+strSource+":"+strDestination+":"+strDeliveryDateFrom+":"+strDeliveryDateTo+":"+
+                    strOrderNumberFrom+":"+strOrderNumberTo+":"+strCaseUPCFrom+":"+strCaseUPCTo+":"+strTruckNumber+":"+strFetchSize+":"+buyer;
+        String strServiceStatus = "";
+        String strServiceErrMsg = "";
+        resetServiceStatus();
+        
         if("".equalsIgnoreCase(selectedStatus)){
-            url = RestURIs.getOrderSearchURL(strOrderType, strStatus, strDestination, 
+
+            url = RestURIs.getOrderSearchURL(strOrderType, strStatus, strSource, strDestination, 
                                              strDeliveryDateFrom, strDeliveryDateTo, strOrderNumberFrom, strOrderNumberTo, 
                                              strCaseUPCFrom, strCaseUPCTo, strTruckNumber, strFetchSize, buyer);
         }
@@ -73,21 +83,39 @@ public class OrderListService {
         }
         strDebug = strDebug +":ur:"+url;
         String jsonArrayAsString = serviceManager.invokeREAD(url);
-        try {
+        
             strDebug = strDebug +":2:";
             JSONObject jsonObject = null;
             JSONObject parent = null;
             JSONArray nodeArray = null;
             if("".equalsIgnoreCase(selectedStatus)){
                 jsonObject = new JSONObject(jsonArrayAsString);
+                if (jsonObject.getString("X_RETURN_STATUS") != null)
+                    strServiceStatus = jsonObject.getString("X_RETURN_STATUS");
+                
+                if (jsonObject.getString("X_RETURN_MSG") != null)
+                    strServiceErrMsg = jsonObject.getString("X_RETURN_MSG");            
+                strDebug = strDebug + ":strServiceStatus:"+strServiceStatus+":strServiceErrMsg:"+strServiceErrMsg;
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.serviceErrMsg}", strServiceErrMsg);
+                
                 parent = jsonObject.getJSONObject("P_AIP_ORD_HDR_TBL");
                 nodeArray = parent.getJSONArray("P_AIP_ORD_HDR_TBL_ITEM");            
             }
             else {
                 jsonObject = new JSONObject(jsonArrayAsString);
+                if (jsonObject.getString("X_RETURN_STATUS") != null)
+                    strServiceStatus = jsonObject.getString("X_RETURN_STATUS");
+                
+                if (jsonObject.getString("X_RETURN_MSG") != null)
+                    strServiceErrMsg = jsonObject.getString("X_RETURN_MSG");            
+                strDebug = strDebug + ":strServiceStatus:"+strServiceStatus+":strServiceErrMsg:"+strServiceErrMsg;
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.serviceErrMsg}", strServiceErrMsg);
+                
                 parent = jsonObject.getJSONObject("X_PLANNED_ORD_TAB");
                 nodeArray = parent.getJSONArray("X_PLANNED_ORD_TAB_ITEM");
             }
+            
+
 
 
             int size = nodeArray.length();
@@ -230,6 +258,13 @@ public class OrderListService {
         strDebug = strDebug +":10:";
         orderHeaderArray = orderHeaderList.toArray(new OrderHeaders[orderHeaderList.size()]);
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.strDebug}", strDebug);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.strDebug1}", strDebug1);
+        
         return orderHeaderArray;
     }
+    
+    public void resetServiceStatus(){
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.serviceStatus}", "");
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.serviceErrMsg}", "");
+    }    
 }

@@ -1,5 +1,8 @@
 package deloitte.retail.mobile.beans;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.amx.event.ValueChangeEvent;
 import oracle.adfmf.bindings.OperationBinding;
@@ -16,6 +19,7 @@ public class HomeBean {
         // Add event code here...
         String strDebug = "springBoardEvent Start:";
         try{
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.showSearchRegion}","false");            
         AdfmfContainerUtilities.gotoSpringboard();
         }
         catch(Exception e){
@@ -33,8 +37,10 @@ public class HomeBean {
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchStatus}", null);
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchSource}", null);
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchDestination}", null);
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchDeliveryFromDate}", null);
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchDeliveryToDate}", null);
+//        AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchDeliveryFromDate}", null);
+//        AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchDeliveryToDate}", null);
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchDeliveryFromDate}", getPreferenceDeliveryStartDate());
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchDeliveryToDate}", getPreferenceDeliveryEndDate());
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchOrderNumberFrom}", null);
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchOrderNumberTo}", null);
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchCaseUPCFrom}", null);
@@ -53,7 +59,7 @@ public class HomeBean {
     public void searchPlannedOrders(ActionEvent actionEvent) {
         String strDeliveryDateFrom = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchDeliveryFromDate}");
         String strDeliveryDateTo = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchDeliveryToDate}");
-        String strFetchSize="25";
+        String strFetchSize= (String)AdfmfJavaUtilities.getELValue("#{preferenceScope.application.UserSettings.RecordSize}");
         String isError = "N";
         if(strDeliveryDateFrom == null || "".equalsIgnoreCase(strDeliveryDateFrom)){
             isError = "Y";
@@ -82,7 +88,9 @@ public class HomeBean {
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.searchFieldsValid}","true");
         }
         
-        
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.strDateDebug}",""+AdfmfJavaUtilities.getELValue("#{preferenceScope.application.UserSettings.DeliveryMonths}")
+                                      +":"+AdfmfJavaUtilities.getELValue("#{preferenceScope.application.UserSettings.RecordSize}")
+                                      );
         
     }
 
@@ -99,4 +107,50 @@ public class HomeBean {
         AdfmfJavaUtilities.setELValue("#{pageFlowScope.showSearchRegion}","false");
         return "backToSummary";
     }
+
+
+    public void savePreference(ActionEvent actionEvent) {
+//        AdfmfJavaUtilities.setELValue("#{preferenceScope.application.UserSettings.DeliveryMonths}",AdfmfJavaUtilities.getELValue("#{pageFlowScope.prefDeliveryMonth}"));
+//        AdfmfJavaUtilities.setELValue("#{preferenceScope.application.UserSettings.RecordSize}",AdfmfJavaUtilities.getELValue("#{pageFlowScope.prefRecordLimit}"));
+        AdfmfContainerUtilities.gotoSpringboard();
+    }
+    
+    public String getPreferenceDeliveryStartDate(){
+        String strDate = "";
+        try{
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate cal = LocalDate.now();
+        strDate = dtf.format(cal);
+        }
+        catch(Exception e){
+        }
+        return strDate;
+    }
+    public String getPreferenceDeliveryEndDate(){
+        String strDate = "";
+        String strDateDebug = "";
+       try{
+           long weeks = Long.valueOf(AdfmfJavaUtilities.getELValue("#{preferenceScope.application.UserSettings.DeliveryMonths}")==null?"0":
+                                        (String)AdfmfJavaUtilities.getELValue("#{preferenceScope.application.UserSettings.DeliveryMonths}")
+                                   );
+            strDateDebug = strDateDebug + ":"+weeks;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate cal = LocalDate.now();
+          cal = cal.plusWeeks(weeks);
+            strDateDebug = strDateDebug +":MonthAd";
+        strDate = dtf.format(cal);
+            strDateDebug = strDateDebug +":FInish";
+        }
+        catch(Exception e){
+            strDateDebug = strDateDebug + ":"+e.getMessage();
+        }
+        strDateDebug = strDateDebug +":End";
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.strDateDebug}",strDateDebug);
+        return strDate;
+    }
+
+//    public void setPreValues() {
+//        AdfmfJavaUtilities.setELValue("#{pageFlowScope.prefDeliveryMonth}",AdfmfJavaUtilities.getELValue("#{preferenceScope.application.UserSettings.DeliveryMonths}"));
+//        AdfmfJavaUtilities.setELValue("#{pageFlowScope.prefRecordLimit}",AdfmfJavaUtilities.getELValue("#{preferenceScope.application.UserSettings.RecordSize}"));
+//    }
 }

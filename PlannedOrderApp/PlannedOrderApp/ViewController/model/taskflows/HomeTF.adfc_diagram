@@ -105,4 +105,39 @@
       <property
          name="sdm:polyPoints">L54,458.35254,193.24707,259.46194,200.24707,R54</property>
    </ControlFlowCase>
+   <View
+      id="View10">
+      <property
+         name="activityId">SKUDetails</property>
+      <property
+         name="page">/pages/SKUDetails.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SKUDetails&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">192.5459</property>
+      <property
+         name="x">1063.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="View3"
+      to="View10">
+      <property
+         name="fromOutcome">toSKUDetails</property>
+      <property
+         name="sdm:polyPoints">R46,832.67676,189.5459,1021.98425,188.69531,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase12"
+      from="View10"
+      to="View3">
+      <property
+         name="fromOutcome">backToOrderDetails</property>
+      <property
+         name="sdm:polyPoints">L54,1022.0,195.69531,832.6925,196.5459,R54</property>
+   </ControlFlowCase>
 </SDM>

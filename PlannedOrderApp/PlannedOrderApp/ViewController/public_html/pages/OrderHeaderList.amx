@@ -15,6 +15,17 @@
                 <amx:outputHtml id="oh2" styleClass="fa fa-reorder fa-1x" inlineStyle="color:#ffffff;"/>
             </amx:commandLink>-->
         </amx:facet>
+        <amx:panelLabelAndMessage label="" id="plam14" showRequired="false" rendered="true">
+            <amx:tableLayout id="tl18" width="100%">
+                <amx:rowLayout id="rl17">
+                    <amx:cellFormat styleClass="cell-border" id="cf20" width="90%" halign="center">
+                        <amx:spacer id="s1" height="10"/>
+                        <amx:outputText value="#{pageFlowScope.serviceErrMsg}" id="ot10" inlineStyle="color:gray;"/>
+                        <amx:spacer id="s2" height="10"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelLabelAndMessage>           
         <amx:listView var="row" value="#{bindings.orderHeadersList.collectionModel}"
                       fetchSize="#{bindings.orderHeadersList.rangeSize}"
                       selectedRowKeys="#{bindings.orderHeadersList.collectionModel.selectedRow}"
@@ -118,9 +129,11 @@
                         <amx:cellFormat id="cf37" width="4%"/>
                     </amx:rowLayout>                    
                 </amx:tableLayout>
-                <amx:setPropertyListener id="spl4" from="1" to="#{pageFlowScope.selectedOrderNum}"/>
+                <amx:setPropertyListener id="spl4" from="#{row.orderId}" to="#{pageFlowScope.selectedOrderNum}"/>
+                <amx:setPropertyListener id="spl1" from="#{row.orderNumber}" to="#{pageFlowScope.selectedOrderDisplayNum}"/>
             </amx:listItem>
         </amx:listView>        
-        <!--<amx:outputText value="#{pageFlowScope.strDebug}" id="ot3"/>-->        
+        <!--<amx:outputText value="#{pageFlowScope.strDebug}" id="ot3"/>   
+         <amx:outputText value="#{pageFlowScope.strDebug1}" id="ot6"/>-->   
   </amx:panelPage>
 </amx:view>

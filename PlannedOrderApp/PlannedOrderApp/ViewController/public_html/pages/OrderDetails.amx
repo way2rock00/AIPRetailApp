@@ -3,7 +3,7 @@
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <amx:panelPage id="pp1">
         <amx:facet name="header">
-            <amx:outputText value="Order ##{pageFlowScope.selectedOrderNum}" id="ot1"
+            <amx:outputText value="Order ##{pageFlowScope.selectedOrderDisplayNum}" id="ot1"
                             styleClass="headertextwhite"
                             inlineStyle="font-size:20px;flex-wrap:wrap; overflow-wrap:break-word; text-align:center; border-bottom-width:0px; border-bottom-style:hidden; border-bottom-color:transparent;"/>
         </amx:facet>
@@ -15,6 +15,17 @@
                 <amx:outputHtml id="oh2" styleClass="fa fa-reorder fa-1x" inlineStyle="color:#ffffff;"/>
             </amx:commandLink>-->
         </amx:facet>
+        <amx:panelLabelAndMessage label="" id="plam14" showRequired="false" rendered="true">
+            <amx:tableLayout id="tl18" width="100%">
+                <amx:rowLayout id="rl17">
+                    <amx:cellFormat styleClass="cell-border" id="cf20" width="90%" halign="center">
+                        <amx:spacer id="s1" height="10"/>
+                        <amx:outputText value="#{pageFlowScope.serviceErrMsg}" id="ot10" inlineStyle="color:gray;"/>
+                        <amx:spacer id="s2" height="10"/>
+                    </amx:cellFormat>
+                </amx:rowLayout>
+            </amx:tableLayout>
+        </amx:panelLabelAndMessage>         
         <amx:listView var="row" value="#{bindings.orderDetailsService.collectionModel}"
                       fetchSize="#{bindings.orderDetailsService.rangeSize}"
                       selectedRowKeys="#{bindings.orderDetailsService.collectionModel.selectedRow}"
@@ -117,7 +128,7 @@
                 </amx:tableLayout>
                 <amx:listView var="linerow" value="#{row.orderLines}"
                               id="lv2">
-                    <amx:listItem id="li2" showLinkIcon="true"
+                    <amx:listItem id="li2" showLinkIcon="true" action="toSKUDetails"
                                   inlineStyle="border-bottom-color:#86BC25;border-bottom-width:thin;border-bottom-style:solid">
                         <amx:tableLayout id="tl1" width="100%" inlineStyle="padding-bottom:15px; table-layout:fixed;">
                             <amx:rowLayout id="rl4">
@@ -136,14 +147,14 @@
                                     <amx:outputText value="Case UPC" id="ot8" styleClass="xxRobotoFieldTitle"/>
                                 </amx:cellFormat>
                                 <amx:cellFormat id="cf12" width="4%"/>  
-                                <amx:cellFormat id="cf20" width="70%">
+                                <amx:cellFormat id="cf47" width="70%">
                                     <amx:outputText value="#{linerow.caseUPC} / #{linerow.caseUPCDesc}" id="ot9" styleClass="xxRobotoFieldValue"/>
                                 </amx:cellFormat>                                
                             </amx:rowLayout>
                             <amx:rowLayout id="rl6">
                                 <amx:cellFormat id="cf21" width="3%" inlineStyle="padding-top:8px;"/>
                                 <amx:cellFormat id="cf23" width="25%" height="10" inlineStyle="padding-top:8px;">
-                                    <amx:outputText value="Class" id="ot10" styleClass="xxRobotoFieldTitle"/>
+                                    <amx:outputText value="Class" id="ot28" styleClass="xxRobotoFieldTitle"/>
                                 </amx:cellFormat>
                                 <amx:cellFormat id="cf22" width="4%"/>  
                                 <amx:cellFormat id="cf24" width="70%">
@@ -181,10 +192,15 @@
                                 </amx:cellFormat>                                
                             </amx:rowLayout>                               
                         </amx:tableLayout>
+                        <amx:setPropertyListener id="spl1" from="#{linerow.caseUPC}" to="#{pageFlowScope.selSKUCaseUPC}"/>
+                         <amx:setPropertyListener id="spl2" from="#{linerow.sellableUPC}" to="#{pageFlowScope.selSKUSellableUPC}"/>
+                          <amx:setPropertyListener id="spl3" from="#{row.deliveryDate}" to="#{pageFlowScope.selSKUDeliveryDate}"/>
+                           <amx:setPropertyListener id="spl4" from="#{row.destinationId}" to="#{pageFlowScope.selSKUStoreId}"/>
                     </amx:listItem>
                 </amx:listView>                
             </amx:listItem>
         </amx:listView>
         <!--<amx:outputText value="#{pageFlowScope.strDebug}" id="ot3"/>-->
+        <!--<amx:outputText value="Test123:#{bindings.orderDetailsService.rangeSize}" id="ot24"/>-->
     </amx:panelPage>
 </amx:view>

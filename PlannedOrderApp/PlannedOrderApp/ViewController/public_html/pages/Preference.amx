@@ -18,29 +18,42 @@
         </amx:facet>
         <amx:panelFormLayout id="pfl2" labelWidth="40%" fieldWidth="60%" labelPosition="start" fieldHalign="start"
                              showHorizontalDividers="false" maxColumns="1">
-            <amx:panelLabelAndMessage id="plam5" label="Delivery From Date" styleClass="label  xxRobotoFieldValue"
+            <amx:panelLabelAndMessage id="plam5" label="Delivery Date Limit" styleClass="label  xxRobotoFieldValue"
                                       showRequired="false" rendered="true">
                 <amx:tableLayout id="tl5" width="100%">
                     <amx:rowLayout id="rl6">
                         <amx:cellFormat styleClass="cell-border" id="cf9" width="95%">
-                            <amx:inputDate id="id1" simple="true"
+                            <!--<amx:inputDate id="id1" simple="true"
                                            inlineStyle="border-color:Black; border-radius:5px; border-width:thin; border-style:solid;"
-                                           inputType="date"/>
+                                           inputType="date"/>-->
+                            <amx:selectOneChoice label="" id="smc1" value="#{preferenceScope.application.UserSettings.DeliveryMonths}">
+                                <amx:selectItem id="si1" label="" value=""/>                            
+                                <amx:selectItem id="si4" label="1 Week" value="1"/>
+                                <amx:selectItem id="si2" label="4 Week" value="4"/>
+                                <amx:selectItem id="si3" label="8 Week" value="8"/>
+                                <amx:selectItem id="si5" label="12 Week" value="12"/>
+                            </amx:selectOneChoice>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
-            <amx:panelLabelAndMessage id="plam6" label="Delivery To Date" styleClass="label  xxRobotoFieldValue"
+            <amx:panelLabelAndMessage id="plam6" label="Record Limit" styleClass="label  xxRobotoFieldValue"
                                       showRequired="false" rendered="true">
                 <amx:tableLayout id="tl7" width="100%">
                     <amx:rowLayout id="rl7">
                         <amx:cellFormat styleClass="cell-border" id="cf10" width="95%">
-                            <amx:inputDate id="id2" simple="true" inputType="date"
-                                           inlineStyle="border-color:Black; border-radius:5px; border-width:thin; border-style:solid;"/>
+                            <amx:inputText id="id2" inlineStyle="border-color:Black; border-radius:5px; border-width:thin; border-style:solid;"
+                                           inputType="number"
+                                           value="#{preferenceScope.application.UserSettings.RecordSize}"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
             </amx:panelLabelAndMessage>
-        </amx:panelFormLayout>      
+        </amx:panelFormLayout>     
+        <amx:panelGroupLayout layout="vertical" id="pgl1" halign="center">
+            <amx:commandButton text="Save" id="cb111" styleClass="buttonsLarge" shortDesc="Save"
+                               actionListener="#{pageFlowScope.PreferenceBean.savePreference}">
+            </amx:commandButton>
+        </amx:panelGroupLayout>        
   </amx:panelPage>
 </amx:view>
