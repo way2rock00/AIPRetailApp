@@ -65,7 +65,7 @@
                         </amx:cellFormat>
                         <amx:cellFormat id="cf11" width="3%"/>
                     </amx:rowLayout>
-                    <amx:rowLayout id="rl1">
+                    <!--<amx:rowLayout id="rl1">
                         <amx:cellFormat id="cf5" width="3%" inlineStyle="padding-top:8px;"/>
                         <amx:cellFormat id="cf1" width="45%" height="10" inlineStyle="padding-top:10px;">
                             <amx:outputText value="Delivery Date" id="ot3" styleClass="xxRobotoFieldTitle"/>
@@ -81,7 +81,7 @@
                             </amx:outputText>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf6" width="3%"/>
-                    </amx:rowLayout>
+                    </amx:rowLayout>-->
                 </amx:tableLayout>
                 <amx:tableLayout id="tl1" width="100%" inlineStyle="padding-bottom:15px; table-layout:fixed;">
                     <amx:rowLayout id="rl10">

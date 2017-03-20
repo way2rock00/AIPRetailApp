@@ -35,8 +35,8 @@ public class OrderListService {
         String selectedStatus = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.selectedStatus}");
         strDebug = strDebug + ":1:"+selectedStatus;
         String url = "";
-        String strOrderType = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchOrderType}");
-        strOrderType = "PO";
+                String strOrderType = AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchOrderType}")==null? "-999":
+                        (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchOrderType}");
         String strStatus = AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchStatus}") == null ? "-999" :
                            (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.searchStatus}");
         

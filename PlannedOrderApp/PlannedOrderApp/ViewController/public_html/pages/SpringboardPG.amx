@@ -37,7 +37,7 @@
                       inlineStyle="border-color:transparent;">
             <amx:listItem id="li1" showLinkIcon="true"
                           inlineStyle="border-bottom-color:#86BC25;border-bottom-width:thin;border-bottom-style:solid"
-                          actionListener="#{bindings.gotoFeature.execute}">
+                          actionListener="#{pageFlowScope.SpringboardBean.springboardClicked}">
                 <amx:tableLayout width="100%" id="tl2" halign="center"
                                  inlineStyle="padding-bottom:13px; padding-top:13px;">
                     <amx:rowLayout id="rl2">
@@ -62,7 +62,8 @@
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
-                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.selectedFeatureId}" type="action" from="#{row.featureId}"/>
+                <amx:setPropertyListener id="spl1" to="#{pageFlowScope.selectedFeatureName}" type="action" from="#{row.featureName}"/>
+                <amx:setPropertyListener id="spl2" to="#{pageFlowScope.selectedFeatureId}" type="action" from="#{row.featureId}"/>
             </amx:listItem>
         </amx:listView>
     </amx:panelPage>

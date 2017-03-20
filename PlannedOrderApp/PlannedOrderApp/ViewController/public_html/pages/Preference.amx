@@ -28,8 +28,9 @@
                                            inputType="date"/>-->
                             <amx:selectOneChoice label="" id="smc1" value="#{preferenceScope.application.UserSettings.DeliveryMonths}">
                                 <amx:selectItem id="si1" label="" value=""/>                            
-                                <amx:selectItem id="si4" label="1 Week" value="1"/>
+                                <amx:selectItem id="si4" label="2 Week" value="2"/>
                                 <amx:selectItem id="si2" label="4 Week" value="4"/>
+                                <amx:selectItem id="si6" label="6 Week" value="6"/>
                                 <amx:selectItem id="si3" label="8 Week" value="8"/>
                                 <amx:selectItem id="si5" label="12 Week" value="12"/>
                             </amx:selectOneChoice>

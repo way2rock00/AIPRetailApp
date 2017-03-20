@@ -50,7 +50,7 @@ public class RestURIs {
                                            String strOrderFrom,String strOrderTo,String strCaseUPCFrom,String strCaseUPCTo,
                                            String strTruckNum,String strFetchSize,String strPlanner){
         String strSDebug="Search:";
-    return OrderSearchURL+"/"+ convertString2URLFormat(strOrderType)+"/"+strStatus+"/"+convertString2URLFormat(strSource)+
+    return OrderSearchURL+"/"+ convertString2URLFormat(strOrderType)+"/"+convertString2URLFormat(strSource)+"/"+strStatus+
         "/"+convertString2URLFormat(strDestination)+"/"+convertStringToDateFormat(strDelivDateFrom+"T")+"/"+convertStringToDateFormat(strDelivDateTo+"T")+
            "/"+strOrderFrom+"/"+strOrderTo+"/"+strCaseUPCFrom+"/"+
         strCaseUPCTo+"/"+strTruckNum+"/"+strFetchSize+"/"+strPlanner;

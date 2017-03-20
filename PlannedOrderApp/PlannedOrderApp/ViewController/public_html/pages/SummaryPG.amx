@@ -32,8 +32,14 @@
                 <amx:tableLayout id="tl6" width="100%">
                     <amx:rowLayout id="rl5">
                         <amx:cellFormat styleClass="cell-border" id="cf5" width="95%">
-                            <amx:inputText styleClass="username_field" id="it6"
-                                           value="#{pageFlowScope.searchOrderType}"/>
+                            <!--<amx:inputText styleClass="username_field" id="it6"
+                                           value="#{pageFlowScope.searchOrderType}"/>-->
+                            <amx:selectOneChoice value="#{pageFlowScope.searchOrderType}" 
+                                                 id="soc2" inlineStyle="color:##86BC25">
+                                <amx:selectItem value="-999" id="si3" label="Select Order Type"/>
+                                <amx:selectItem value="Purchase Order" id="si4" label="Purchase Order"/>
+                                <amx:selectItem value="Transfer Order" id="si5" label="Transfer Order"/>
+                            </amx:selectOneChoice>                                              
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
@@ -43,8 +49,14 @@
                 <amx:tableLayout id="tl1" width="100%">
                     <amx:rowLayout id="rl1">
                         <amx:cellFormat styleClass="cell-border" id="cf6" width="95%">
-                            <amx:inputText styleClass="username_field" id="it1"
-                                           value="#{pageFlowScope.searchStatus}"/>
+                            <!--<amx:inputText styleClass="username_field" id="it1"
+                                           value="#{pageFlowScope.searchStatus}"/>-->
+                            <amx:selectOneChoice value="#{pageFlowScope.searchStatus}" 
+                                                 id="soc4" inlineStyle="color:##86BC25">
+                                <amx:selectItem value="-999" id="si2" label="Select Status"/>
+                                <amx:selectItem value="Released" id="si6" label="Released"/>
+                                <amx:selectItem value="Unreleased" id="si7" label="Unreleased"/>
+                            </amx:selectOneChoice>                                              
                         </amx:cellFormat>
                     </amx:rowLayout>
                 </amx:tableLayout>
@@ -72,8 +84,8 @@
                             <!--<amx:inputText styleClass="username_field" id="it3" inputType="text"
                                                value="#{pageFlowScope.searchDestination}"/>-->
                             <amx:selectOneChoice value="#{pageFlowScope.searchDestination}" 
-                                                 id="soc2" inlineStyle="color:##86BC25" styleClass="test">
-                                <amx:selectItems value="#{bindings.destinationDesc.items}" id="si2"/>
+                                                 id="soc3" inlineStyle="color:##86BC25" styleClass="test">
+                                <amx:selectItems value="#{bindings.destinationDesc.items}" id="si8"/>
                             </amx:selectOneChoice>                                               
                             </amx:cellFormat>
                     </amx:rowLayout>

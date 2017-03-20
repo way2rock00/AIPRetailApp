@@ -37,6 +37,7 @@ public class PlannedOrderBean {
         String strReturnStatus = "E";
         String strLoginNumber = "";
         String strErrorMessage = "";
+
         System.out.println("LoginIn_buttonClick start");
         String userName = AdfmfJavaUtilities.getELValue("#{pageFlowScope.userName}").toString();
         String password = AdfmfJavaUtilities.getELValue("#{pageFlowScope.password}").toString();
@@ -45,10 +46,12 @@ public class PlannedOrderBean {
         this.validated = false;
         String url = RestURIs.getLoginURL(userName, password,"23131313131" , "BUYER","app.plannedOrder" );
         String strDebug = "s1:"+url;
+
         ServiceManager serviceManager = new ServiceManager();
         System.out.println("po status by header url:" + url);
         String jsonArrayAsString = serviceManager.invokeREAD(url);
         strDebug = strDebug +"s2:"+jsonArrayAsString;
+
             try{
                 JSONObject jsonObject = new JSONObject(jsonArrayAsString);
                 if(jsonObject != null){

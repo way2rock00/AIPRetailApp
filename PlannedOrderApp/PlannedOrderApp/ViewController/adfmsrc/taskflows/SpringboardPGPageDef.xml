@@ -10,11 +10,6 @@
                       id="springBoardIterator"/>
   </executables>
   <bindings>
-    <methodAction id="gotoFeature" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoFeature"
-                  IsViewObjectMethod="false" DataControl="ApplicationFeatures"
-                  InstanceName="data.ApplicationFeatures.dataProvider">
-      <NamedData NDName="featureId" NDValue="#{pageFlowScope.selectedFeatureId}" NDType="java.lang.String"/>
-    </methodAction>
     <tree IterBinding="springBoardIterator" id="springBoard">
       <nodeDefinition DefName="deloitte.retail.mobile.pojo.SpringboardItems" Name="springBoard0">
         <AttrNames>

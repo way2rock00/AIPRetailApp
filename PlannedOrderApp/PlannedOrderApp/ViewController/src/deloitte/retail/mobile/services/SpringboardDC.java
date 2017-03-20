@@ -17,6 +17,8 @@ public class SpringboardDC {
         springboardList.add(item);
         item = new SpringboardItems("deloitte.retail.Preference","Preference","fa fa-cog");
         springboardList.add(item);
+        item = new SpringboardItems("deloitte.retail.Preference","Logout","fa fa-power-off");
+        springboardList.add(item);        
         springboardArray = springboardList.toArray(new SpringboardItems[springboardList.size()]);
         return springboardArray ;
         
