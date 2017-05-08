@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="InvTF">
+    <default-activity>OnhandInv</default-activity>
+    <view id="InvMainPG">
+      <page>/pages/InvMainPG.amx</page>
+    </view>
+    <view id="OnhandInv">
+      <page>/pages/OnhandInv.amx</page>
+    </view>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>
