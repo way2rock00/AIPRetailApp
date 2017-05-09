@@ -15,35 +15,35 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">264.89648</property>
+         name="y">72.19531</property>
       <property
-         name="x">39.0</property>
+         name="x">-52.0</property>
    </View>
    <TaskFlowCall
-      id="TaskFlowCall13">
+      id="TaskFlowCall10">
       <property
-         name="taskFlowId">HomeTF</property>
+         name="taskFlowId">MainMenuTF</property>
       <property
-         name="activityId">HomeTF</property>
+         name="activityId">MainMenuTF</property>
       <property
-         name="documentReference">/taskflows/HomeTF.xml</property>
+         name="documentReference">/taskflows/MainMenuTF.xml</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>HomeTF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>MainMenuTF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">256.44824</property>
+         name="y">25.149414</property>
       <property
-         name="x">309.5</property>
+         name="x">162.34375</property>
    </TaskFlowCall>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase14"
+      id="ControlFlowCase11"
       from="View2"
-      to="TaskFlowCall13">
+      to="TaskFlowCall10">
       <property
          name="fromOutcome">loginSuccess</property>
       <property
-         name="sdm:polyPoints">R50,80.0,264.5459,268.5,256.09766,L50</property>
+         name="sdm:polyPoints">B50,-52.0,125.84473,162.34375,78.79883,B50</property>
    </ControlFlowCase>
 </SDM>
