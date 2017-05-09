@@ -16,47 +16,43 @@
     <amx:facet name="secondary">
       <amx:commandButton id="cb2"/>
     </amx:facet>
-        
-        <amx:tableLayout id="t12" width="100%"
-                         inlineStyle="padding-bottom:15px; table-layout:fixed;">
+        <amx:panelSplitter id="ps1">
+            <amx:facet name="navigator"/>
+            <amx:panelItem id="pi1">
+       
+        <amx:tableLayout id="t12" width="100%" halign="center"
+                         inlineStyle="padding-bottom:5px; table-layout:fixed;">
                     <amx:rowLayout id="r1l4">
                         <amx:cellFormat id="cf026" width="3%" inlineStyle="padding-top:8px;"/>
-                        <amx:cellFormat id="cf16" width="45%" height="10" inlineStyle="padding-top:10px;">
-                            <amx:outputText value="Case UPC" id="ot7" styleClass="xxRobotoFieldTitle"/>
+                        <amx:cellFormat id="cf16" width="45%" height="10" inlineStyle="padding-top:10px;"
+                                        halign="start">
+                            <amx:outputText value="Sellable  UPC" id="ot7" styleClass="xxRobotoFieldTitle"/>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf021" width="3%"/>
-                        <amx:cellFormat id="cf1"  width="45%" height="10" inlineStyle="padding-top:10px;">
-                            <amx:outputText value="Saleable Item" id="ot2" styleClass="xxRobotoFieldTitle">
-                            </amx:outputText>
-                        </amx:cellFormat>
+                        <amx:cellFormat id="cf021" width="3%"/>                       
                     </amx:rowLayout>
                     <amx:rowLayout id="r1l5">
                         <amx:cellFormat id="cf019" width="3%"/>
-                        <amx:cellFormat id="cf020" width="45%">
+                        <amx:cellFormat id="cf020" width="45%" halign="start">
                             <amx:outputText value="UPC1234" id="ot3" styleClass="xxRobotoFieldValue"></amx:outputText>
                         </amx:cellFormat>
-                        <amx:cellFormat id="cf07" width="3%"/>
-                        <amx:cellFormat id="cf4"  width="45%">
-                            <amx:outputText value="UPCS12345" id="ot4" styleClass="xxRobotoFieldValue">
-                            </amx:outputText>
-                        </amx:cellFormat>
+                        <amx:cellFormat id="cf07" width="3%"/>                       
                     </amx:rowLayout>
                 </amx:tableLayout>
-                <amx:tableLayout id="tl1" width="100%" inlineStyle="padding-bottom:15px; table-layout:fixed;">
+                <amx:tableLayout id="tl1" width="100%">
                     <amx:rowLayout id="rl10">
-                        <amx:cellFormat id="cf9" width="3%" inlineStyle="padding-top:8px;"/>
+                        <amx:cellFormat id="cf9" width="7%" inlineStyle="padding-top:8px;"/>
                         <amx:cellFormat id="cf18" width="33%" height="10" inlineStyle="padding-top:8px;">
-                            <amx:outputText value="Description" id="ot13" styleClass="xxRobotoFieldTitle"/>
+                            <amx:outputText value="Description:" id="ot13" styleClass="xxRobotoFieldTitle"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf14" width="4%"/>
                         <amx:cellFormat id="cf15" width="77%" height="10" inlineStyle="padding-top:8px;">
-                            <amx:outputText value="Description: " id="ot6" styleClass="xxRobotoFieldValue"/>
+                            <amx:outputText value="Description for Product UPC1234" id="ot6" styleClass="xxRobotoFieldValue"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                     <amx:rowLayout id="rl5">
-                        <amx:cellFormat id="cf17" width="3%" inlineStyle="padding-top:8px;"/>
+                        <amx:cellFormat id="cf17" width="7%" inlineStyle="padding-top:8px;"/>
                         <amx:cellFormat id="cf19" width="33%" height="10" inlineStyle="padding-top:8px;">
-                            <amx:outputText value="Item Sub-Class" id="ot8" styleClass="xxRobotoFieldTitle"/>
+                            <amx:outputText value="Item Sub-Class: " id="ot8" styleClass="xxRobotoFieldTitle"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf30" width="4%"/>
                         <amx:cellFormat id="cf47" width="77%" height="10" inlineStyle="padding-top:8px;">
@@ -65,21 +61,22 @@
                     </amx:rowLayout>
                 </amx:tableLayout>
         <amx:spacer id="s1" height="20"/>
-        <amx:tableLayout id="tl2" width="150%" halign="center"
-                         inlineStyle="padding-bottom:15px; table-layout:fixed;">
+                
+         <amx:tableLayout id="tl2"  halign="center" 
+                         inlineStyle="padding-bottom:15px; table-layout:fixed;" width="100%">
                     <amx:rowLayout id="rl1">
-                        <amx:cellFormat id="cf2" width="3%" inlineStyle="padding-top:8px;"/>
-                        <amx:cellFormat id="cf3" halign="center" width="45%" height="10"
-                                        inlineStyle="padding-top:10px; background-color:transparent;">
+                        <amx:cellFormat id="cf2" width="30%" inlineStyle="padding-top:8px;"/>
+                        <amx:cellFormat id="cf3" halign="center"
+                                        inlineStyle="padding-top:10px; background-color:Fuchsia;">
                             <amx:outputText value="Case UPC" id="ot5" styleClass="xxRobotoFieldTitleLrgFnt"
                                             inlineStyle="color:Grey;"/>                                            
                         </amx:cellFormat>
-                <amx:cellFormat id="cf5"/>
+                        <amx:cellFormat id="cf5"/>
             </amx:rowLayout>
                     <amx:rowLayout id="rl2">
-                        <amx:cellFormat id="cf7" width="3%"/>
-                        <amx:cellFormat id="cf11" halign="end">
-                            <amx:selectOneChoice id="soc1">
+                        <amx:cellFormat id="cf1"/>
+                        <amx:cellFormat id="cf11" halign="center" inlineStyle="background-color:Olive;">
+                            <amx:selectOneChoice id="soc1" inlineStyle="width:150px;">
                                 <amx:selectItem id="si1"/>
                                 <amx:selectItem label="Item1" id="si6"/>
                              <amx:selectItem label="Item12" id="si2"/>
@@ -87,27 +84,88 @@
                 </amx:cellFormat>                                                
             </amx:rowLayout>
        </amx:tableLayout>
-       <amx:tableLayout id="tl3" width="150%" halign="center"
-                      inlineStyle="padding-bottom:15px; table-layout:fixed;">
-                 <amx:rowLayout id="rl3">
-                     <amx:cellFormat id="cf6" width="3%" inlineStyle="padding-top:8px;"/>
-                     <amx:cellFormat id="cf8" halign="center" width="45%" height="10"
-                                     inlineStyle="padding-top:10px; background-color:transparent;">
-                         <amx:outputText value="On Hand" id="ot10" styleClass="xxRobotoFieldTitleLrgFnt"
-                                         inlineStyle="color:Grey;"/>                                            
-                     </amx:cellFormat>
-             <amx:cellFormat id="cf10"/>
-         </amx:rowLayout>
-                 <amx:rowLayout id="rl4">
-                     <amx:cellFormat id="cf12" width="3%"/>
-                     <amx:cellFormat id="cf13" halign="end">
-                         <amx:selectOneChoice id="soc2">
-                             <amx:selectItem id="si3"/>
-                             <amx:selectItem label="Item1" id="si4"/>
-                             <amx:selectItem label="Item12" id="si5"/>
-                         </amx:selectOneChoice>
-             </amx:cellFormat>                                                
-        </amx:rowLayout>
-      </amx:tableLayout>          
+       <amx:tableLayout id="tl3" width="100%" halign="start">
+                    <amx:rowLayout id="rl3">
+                        <amx:cellFormat id="cf4" width="20%" inlineStyle="padding-top:8px;"/>
+                        <amx:cellFormat id="cf6" width="77%" height="10" inlineStyle="padding-top:8px;">
+                            <amx:outputText value="On Hand:" id="ot2" styleClass="xxRobotoFieldTitle"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf7" width="9%"/>
+                        <amx:cellFormat id="cf8" width="77%" height="10" inlineStyle="padding-top:8px;">
+                            <amx:outputText value="1000 " id="ot4" styleClass="xxRobotoFieldValue"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl4">
+                        <amx:cellFormat id="cf10" width="3%" inlineStyle="padding-top:8px;"/>
+                        <amx:cellFormat id="cf12" width="33%" height="10" inlineStyle="padding-top:8px;">
+                            <amx:outputText value="Total Firm Order Quantity " id="ot10" styleClass="xxRobotoFieldTitle"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf13" width="3%"/>
+                        <amx:cellFormat id="cf20" width="77%" height="10" inlineStyle="padding-top:8px;">
+                            <amx:outputText value="2000" id="ot11" styleClass="xxRobotoFieldValue"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl6">
+                        <amx:cellFormat id="cf21" width="7%" inlineStyle="padding-top:8px;"/>
+                        <amx:cellFormat id="cf24" width="77%" height="10" inlineStyle="padding-top:8px;">
+                            <amx:outputText value="Total Planned Order Quantity " id="ot12" styleClass="xxRobotoFieldTitle"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf22" width="4%"/>
+                        <amx:cellFormat id="cf23" width="33%" height="10" inlineStyle="padding-top:8px;">
+                            <amx:outputText value="3000" id="ot14" styleClass="xxRobotoFieldValue"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                        <amx:tableLayout id="tl4" width="100%" halign="center"
+                         inlineStyle="padding-bottom:25px; table-layout:fixed;">
+                    <amx:rowLayout id="rl7">
+                        <amx:cellFormat id="cf25" width="11%" inlineStyle="padding-top:8px;"/>
+                        <amx:cellFormat id="cf26" width="45%" height="10" inlineStyle="padding-top:10px;"
+                                        halign="start">
+                            <amx:outputText value="Display Min" id="ot15" styleClass="xxRobotoFieldTitle"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf27" width="45%" height="10" inlineStyle="padding-top:10px;"
+                                        halign="start">
+                            <amx:outputText value="Presentation Min" id="ot17" styleClass="xxRobotoFieldTitle"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl8">
+                        <amx:cellFormat id="cf28" width="3%"/>
+                        <amx:cellFormat id="cf31" width="45%" halign="start">
+                            <amx:outputText value="1000" id="ot16" styleClass="xxRobotoFieldValue"></amx:outputText>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf29" width="45%" halign="start">
+                            <amx:outputText value="1000" id="ot18" styleClass="xxRobotoFieldValue"></amx:outputText>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                
+                        <amx:tableLayout id="tl5" width="100%" halign="center"
+                         inlineStyle="padding-bottom:5px; table-layout:fixed;">
+                    <amx:rowLayout id="rl9">
+                        <amx:cellFormat id="cf32" width="11%" inlineStyle="padding-top:8px;"/>
+                        <amx:cellFormat id="cf34" width="45%" height="10" inlineStyle="padding-top:10px;"
+                                        halign="start">
+                            <amx:outputText value="Price" id="ot19" styleClass="xxRobotoFieldTitle"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf33" width="45%" height="10" inlineStyle="padding-top:10px;"
+                                        halign="start">
+                            <amx:outputText value="Causal" id="ot20" styleClass="xxRobotoFieldTitle"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                    <amx:rowLayout id="rl11">
+                        <amx:cellFormat id="cf35" width="3%"/>
+                        <amx:cellFormat id="cf36" width="45%" halign="start">
+                            <amx:outputText value="1000" id="ot21" styleClass="xxRobotoFieldValue"></amx:outputText>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf38" width="45%" halign="start">
+                            <amx:outputText value="Yes" id="ot22" styleClass="xxRobotoFieldValue"
+                                            inlineStyle="color:Lime;"></amx:outputText>
+                        </amx:cellFormat>
+                    </amx:rowLayout>
+                </amx:tableLayout>
+                
+       </amx:panelItem>
+         </amx:panelSplitter>        
     </amx:panelPage>
 </amx:view>
