@@ -9,6 +9,10 @@
   <adfmf:featureReference refId="deloitte.retail.Home" id="fr3" showOnNavigationBar="false" showOnSpringboard="false"/>
   <adfmf:featureReference refId="deloitte.retail.Preference" id="fr4" showOnNavigationBar="false"
                           showOnSpringboard="false"/>
+  <adfmf:featureReference refId="deloitte.retail.MainMenu" id="fr5" showOnNavigationBar="false"
+                          showOnSpringboard="false"/>
+  <adfmf:featureReference refId="deloitte.retail.InvTF" id="fr6" showOnNavigationBar="false" showOnSpringboard="false"/>
+  <adfmf:featureReference refId="deloitte.retail.MainMenuTF" id="fr7" showOnNavigationBar="false"/>
   <adfmf:preferences>
     <adfmf:preferenceGroup id="UserSettings" label="UserSettings">
       <adfmf:preferenceText id="DeliveryMonths" label="DeliveryMonths"/>
@@ -20,5 +24,6 @@
                        width="300">
       <adfmf:springboardFeatureReference refId="deloitte.retail.Springboard" id="sfr1"/>
     </adfmf:springboard>
+    <adfmf:navigationBar enabled="true"/>
   </adfmf:navigation>
 </adfmf:application>
