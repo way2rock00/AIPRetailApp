@@ -20,4 +20,19 @@
       <adfmf:amx file="taskflows/PreferenceTF.xml#PreferenceTF"/>
     </adfmf:content>
   </adfmf:feature>
+  <adfmf:feature id="deloitte.retail.MainMenu" name="MainMenu">
+    <adfmf:content id="deloitte.retail.MainMenu.1">
+      <adfmf:amx file="pages/MainMenuPG.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="deloitte.retail.InvTF" name="InvTF">
+    <adfmf:content id="deloitte.retail.InvTF.1">
+      <adfmf:amx file="taskflows/InvTF.xml#InvTF"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="deloitte.retail.MainMenuTF" name="MainMenuTF">
+    <adfmf:content id="deloitte.retail.MainMenuTF.1">
+      <adfmf:amx file="taskflows/MainMenuTF.xml#MainMenuTF"/>
+    </adfmf:content>
+  </adfmf:feature>
 </adfmf:features>
