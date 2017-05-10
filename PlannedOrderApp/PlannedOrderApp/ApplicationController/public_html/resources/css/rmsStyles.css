@@ -70,6 +70,14 @@
     color: #999999 !important;
 }
 
+.xxRobotoGroupLabel {
+    font-family: xxRobotoLight !important;
+    font-size: 14px !important;
+    color: #999999 !important;
+    font-weight: bold;
+}
+
+
 .xxRobotoFieldValue {
     font-family: xxRobotoRegular !important;
     font-size: 14px !important;
@@ -86,6 +94,40 @@
     word-wrap: break-word !important;
 }
 
+.xxFrame1{
+  margin: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: green;
+  padding-bottom:3%;
+}
+
+.xxFrameBottomOpen{
+    border-style: solid;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-bottom-width: 0px;
+    margin: 5px;
+    margin-left: 5px;
+    border-right-width: 1px;
+    border-left-color: green;
+    border-top-color: green;
+    border-right-color: green;
+}
+
+.xxFrameTopOpen{
+  border-style: solid;
+    border-top-width: 0px;
+    border-bottom-width: 1px;
+    margin: 5px;
+    margin-left: 5px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-left-color: green;
+    border-bottom-color: green;
+    border-right-color: green;
+    padding-bottom:3%;
+}
 .amx-panelPage-facet-header {
     -webkit-box-pack: center;
 }
