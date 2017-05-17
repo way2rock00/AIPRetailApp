@@ -14,5 +14,23 @@
                 <amx:outputHtml id="oh2" styleClass="fa fa-reorder fa-1x" inlineStyle="color:#ffffff;"/>
             </amx:commandLink>-->
         </amx:facet>
-  </amx:panelPage>
+        <amx:commandButton text="Scan" id="cb1" actionListener="#{pageFlowScope.BarcodeBean.scanBarcode}"/>
+    <amx:outputText value="NO BARCODE SCANNED YET" id="ot6"
+                    rendered='#{pageFlowScope.BarcodeBean.barcodeResult == "" &amp;&amp; pageFlowScope.BarcodeBean.barcodeError == ""}'/>
+    <amx:outputText value="#{pageFlowScope.BarcodeBean.barcodeError}" id="ot7"
+                    rendered='#{pageFlowScope.BarcodeBean.barcodeError != ""}'/>
+    <amx:panelFormLayout id="pfl1" labelPosition="start" maxColumns="2" showHorizontalDividers="true" rows="3"
+                         fieldHalign="start" labelWidth="100" rendered='#{pageFlowScope.BarcodeBean.barcodeResult != ""}'>
+    <amx:panelLabelAndMessage label="Result" id="plam1">
+      <amx:outputText value="#{pageFlowScope.BarcodeBean.barcodeResult}" id="ot87"/>
+    </amx:panelLabelAndMessage>
+    <amx:panelLabelAndMessage label="Format" id="plam2">
+      <amx:outputText value="#{pageFlowScope.BarcodeBean.barcodeFormat}" id="ot9"/>
+    </amx:panelLabelAndMessage>
+    <amx:panelLabelAndMessage label="Cancelled" id="plam3">
+      <amx:outputText value="#{pageFlowScope.BarcodeBean.barcodeCancelled}" id="ot10"/>
+    </amx:panelLabelAndMessage>
+    </amx:panelFormLayout>
+        
+    </amx:panelPage>
 </amx:view>
