@@ -775,3 +775,24 @@ keygen, select, select[size="0"], select[size="1"] {
 .amx-panelPage-header-overflowIcon{
     display: none;
 }
+.invPageHeader {
+    border-color : #86BC25;
+    border-style: solid ;
+    border-width: 2px;
+}
+.invPglPadding{
+    padding:  5px;
+}
+.invPageRow.amx-node .amx-rowLayout{
+    border-bottom-color: #999999;
+    border-bottom-width: thin;
+    border-bottom-style: solid;
+}
+.invPageCell{
+    border-right-color: Gray;
+    border-right-width: thin;
+    border-right-style: solid !important;
+}
+.invLOVDetails > .field-label{
+    padding: 0px !important ;
+}
