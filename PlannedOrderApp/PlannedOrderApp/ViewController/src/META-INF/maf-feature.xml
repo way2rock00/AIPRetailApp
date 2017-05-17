@@ -27,7 +27,11 @@
   </adfmf:feature>
   <adfmf:feature id="deloitte.retail.InvTF" name="InvTF">
     <adfmf:content id="deloitte.retail.InvTF.1">
-      <adfmf:amx file="taskflows/InvTF.xml#InvTF"/>
+      <adfmf:amx file="taskflows/InvTF.xml#InvTF">
+        <adfmf:includes>
+          <adfmf:include type="JavaScript" file="javascript/scanner.js" id="i1"/>
+        </adfmf:includes>
+      </adfmf:amx>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="deloitte.retail.MainMenuTF" name="MainMenuTF">

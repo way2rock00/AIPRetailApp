@@ -9,7 +9,7 @@
     src: url("../fonts/font/roboto.medium.ttf")format("truetype");
 }
 
-@font-face {
+@font-face { 
     font-family: xxRobotoLight;
     src: url("../fonts/font/roboto.light.ttf")format("truetype");
 }
