@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
+  <task-flow-definition id="MainMenuTF">
+    <default-activity>MainMenuPG</default-activity>
+    <managed-bean id="__4">
+      <managed-bean-name>HomeBean</managed-bean-name>
+      <managed-bean-class>deloitte.retail.mobile.beans.HomeBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="MainMenuPG">
+      <page>/pages/MainMenuPG.amx</page>
+    </view>
+    <task-flow-call id="InvTF">
+      <task-flow-reference>
+        <document>/taskflows/InvTF.xml</document>
+        <id>InvTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="HomeTF">
+      <task-flow-reference>
+        <document>/taskflows/HomeTF.xml</document>
+        <id>HomeTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>MainMenuPG</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>plannedOrders</from-outcome>
+        <to-activity-id>HomeTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>inv</from-outcome>
+        <to-activity-id>InvTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <page-flow-scope-behavior>
+      <push-new/>
+    </page-flow-scope-behavior>
+  </task-flow-definition>
+</adfc-mobile-config>
