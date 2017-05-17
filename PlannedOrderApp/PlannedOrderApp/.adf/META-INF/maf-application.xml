@@ -2,11 +2,13 @@
 <adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
                    version="1.0" name="PlannedOrderApp" id="com.company.PlannedOrderApp"
                    appControllerFolder="ApplicationController"
-                   listener-class="deloitte.retail.application.LifeCycleListenerImpl">
+                   listener-class="deloitte.retail.application.LifeCycleListenerImpl"> 
+                   
   <adfmf:featureReference refId="deloitte.retail.Login" id="fr1" showOnSpringboard="false" showOnNavigationBar="false"/>
+   <adfmf:featureReference refId="deloitte.retail.Home" id="fr3" showOnNavigationBar="false" showOnSpringboard="false"/>
   <adfmf:featureReference refId="deloitte.retail.Springboard" id="fr2" showOnNavigationBar="false"
                           showOnSpringboard="false"/>
-  <adfmf:featureReference refId="deloitte.retail.Home" id="fr3" showOnNavigationBar="false" showOnSpringboard="false"/>
+ 
   <adfmf:featureReference refId="deloitte.retail.Preference" id="fr4" showOnNavigationBar="false"
                           showOnSpringboard="false"/>
   <adfmf:featureReference refId="deloitte.retail.MainMenu" id="fr5" showOnNavigationBar="false"
