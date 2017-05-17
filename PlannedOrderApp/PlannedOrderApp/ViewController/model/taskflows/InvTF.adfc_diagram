@@ -94,7 +94,7 @@
       <property
          name="fromOutcome">scanProduct</property>
       <property
-         name="sdm:polyPoints">R50,25.0,237.24707,208.5,230.0459,L50</property>
+         name="sdm:polyPoints">R46,25.0,233.74707,208.3627,226.5459,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
