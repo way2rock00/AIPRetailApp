@@ -10,19 +10,6 @@
     <view id="Login">
       <page>/pages/Login.amx</page>
     </view>
-    <task-flow-call id="MainMenuTF">
-      <task-flow-reference>
-        <document>/taskflows/MainMenuTF.xml</document>
-        <id>MainMenuTF</id>
-      </task-flow-reference>
-    </task-flow-call>
-    <control-flow-rule id="__2">
-      <from-activity-id>Login</from-activity-id>
-      <control-flow-case id="__4">
-        <from-outcome>loginSuccess</from-outcome>
-        <to-activity-id>MainMenuTF</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
     <page-flow-scope-behavior>
       <push-new/>
     </page-flow-scope-behavior>
