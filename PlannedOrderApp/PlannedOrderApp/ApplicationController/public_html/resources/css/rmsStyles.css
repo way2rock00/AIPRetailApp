@@ -93,40 +93,50 @@
 
     word-wrap: break-word !important;
 }
+.xxMainPgGreenTile{
+  background-color:#86ba25; color:White; width:98%; height:98%; font-size: x-large;
+}
+.xxMainPgGreyTile{
+  background-color:#767a78; color:White; width:98%; height:98%; font-size: x-large;
+}
+
 
 .xxFrame1{
   margin: 5px;
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
-  border-color: green;
+  border-color: #86BC25;
   padding-bottom:3%;
 }
 
 .xxFrameBottomOpen{
     border-style: solid;
-    border-top-width: 1px;
-    border-left-width: 1px;
+    border-top-width: 2px;
+    border-left-width: 2px;
     border-bottom-width: 0px;
+    border-right-width: 2px;
     margin: 5px;
-    margin-left: 5px;
-    border-right-width: 1px;
-    border-left-color: green;
-    border-top-color: green;
-    border-right-color: green;
+    margin-left: 5px;    
+    border-left-color: #86BC25;
+    border-top-color: #86BC25;
+    border-right-color: #86BC25;
+    /*border-color : #86BC25;*/
+    /*border-style: solid ;*/
+    /*border-width: 2px*/
 }
 
 .xxFrameTopOpen{
   border-style: solid;
     border-top-width: 0px;
-    border-bottom-width: 1px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-right-width: 2px;
     margin: 5px;
     margin-left: 5px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-left-color: green;
-    border-bottom-color: green;
-    border-right-color: green;
-    padding-bottom:3%;
+    border-left-color: #86BC25;
+    border-bottom-color: #86BC25;
+    border-right-color: #86BC25;
+    padding-bottom:3%;    
 }
 .amx-panelPage-facet-header {
     -webkit-box-pack: center;
