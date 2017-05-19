@@ -23,6 +23,14 @@ public class RestURIs {
     private static String DestinationURL ="/XxRpmGetPlanOrdDestinationLov/GetPlanOrdDestinationLovRS";
     private static String SKUDetailsURL ="/XxRpmPlannedStoreDaySku/GetPlannedStoreDaySkuRS";    
     
+    private static String ItemQtyUrl ="/XxrpmGetAIPItemQuantities/GetAIPItemQuantities_RS"; // /{P_SELLABLE_UPC}/{P_STORE_NAME}
+    private static String slash="/";
+    
+    public static String getItemQtyUrl(String sellableUPC, String storeNm) {
+        return ItemQtyUrl+slash+sellableUPC+slash+storeNm;
+//        return ItemQtyUrl+slash+"00052378988170"+slash+"";
+        
+    }
     
     public static String getLoginURL(String userName,String password,String deviceId,
                                      String loginType,String appId){
