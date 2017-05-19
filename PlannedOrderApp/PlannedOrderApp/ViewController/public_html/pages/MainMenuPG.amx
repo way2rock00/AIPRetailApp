@@ -24,12 +24,12 @@
                 <amx:cellFormat id="cf1" halign="start" valign="top">
                     <amx:commandButton text="Inventory" id="cb2"
                     inlineStyle="background-color:#86ba25; color:White; width:165px; height:180px; margin:3px; font-size:40px;"
-                                       action="inv"/>
+                                       actionListener="#{pageFlowScope.HomeBean.navigateToInventoryTF}"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf2" halign="end" valign="top">
                     <amx:commandButton text="Planned Order" id="cb3" 
                     inlineStyle="background-color:#767a78; color:White; width:165px; height:180px; margin:3px;"
-                                       action="plannedOrders"/>
+                                       actionListener="#{pageFlowScope.HomeBean.navigateToPlannedOrderTF}"/>
                 </amx:cellFormat>
             </amx:rowLayout>
             <amx:rowLayout id="rl2">

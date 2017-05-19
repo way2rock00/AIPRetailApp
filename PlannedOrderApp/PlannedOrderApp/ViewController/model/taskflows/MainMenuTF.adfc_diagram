@@ -15,62 +15,8 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">188.79883</property>
+         name="y">187.44824</property>
       <property
-         name="x">178.68262</property>
+         name="x">282.68262</property>
    </View>
-   <TaskFlowCall
-      id="TaskFlowCall3">
-      <property
-         name="taskFlowId">InvTF</property>
-      <property
-         name="activityId">InvTF</property>
-      <property
-         name="documentReference">/taskflows/InvTF.xml</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>InvTF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">283.44824</property>
-      <property
-         name="x">478.5</property>
-   </TaskFlowCall>
-   <TaskFlowCall
-      id="TaskFlowCall4">
-      <property
-         name="taskFlowId">HomeTF</property>
-      <property
-         name="activityId">HomeTF</property>
-      <property
-         name="documentReference">/taskflows/HomeTF.xml</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>HomeTF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">88.44824</property>
-      <property
-         name="x">474.5</property>
-   </TaskFlowCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase5"
-      from="View2"
-      to="TaskFlowCall4">
-      <property
-         name="fromOutcome">plannedOrders</property>
-      <property
-         name="sdm:polyPoints">R50,219.68262,188.44824,433.5,88.09766,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase6"
-      from="View2"
-      to="TaskFlowCall3">
-      <property
-         name="fromOutcome">inv</property>
-      <property
-         name="sdm:polyPoints">R54,219.68262,191.94824,437.5,283.09766,L50</property>
-   </ControlFlowCase>
 </SDM>
