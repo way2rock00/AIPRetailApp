@@ -29,9 +29,9 @@
       <property
          name="page">/pages/OnhandInv.amx</property>
       <property
-         name="start">false</property>
+         name="start">true</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>OnhandInv&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>OnhandInv&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -50,9 +50,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">119.396484</property>
+         name="y">75.5918</property>
       <property
-         name="x">368.01953</property>
+         name="x">587.01953</property>
    </View>
    <View
       id="View5">
@@ -65,9 +65,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">360.39648</property>
+         name="y">73.99414</property>
       <property
-         name="x">381.7578</property>
+         name="x">397.7578</property>
    </View>
    <View
       id="View6">
@@ -76,9 +76,9 @@
       <property
          name="page">/pages/ScanPG.amx</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>ScanPG&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>ScanPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -105,5 +105,45 @@
          name="fromOutcome">backToScan</property>
       <property
          name="sdm:polyPoints">L54,208.5,233.5459,25.13735,240.74707,R54</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="View3"
+      to="View5">
+      <property
+         name="fromOutcome">toFutureOrder</property>
+      <property
+         name="sdm:polyPoints">T44,246.0,173.05089,353.98193,70.143555,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View5"
+      to="View3">
+      <property
+         name="fromOutcome">bkOnhandInv</property>
+      <property
+         name="sdm:polyPoints">L54,356.7578,77.143555,253.0,176.0459,T56</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="View5"
+      to="View4">
+      <property
+         name="fromOutcome">toInvDt</property>
+      <property
+         name="sdm:polyPoints">R46,438.80997,70.143555,546.01953,71.74121,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase12"
+      from="View4"
+      to="View5">
+      <property
+         name="fromOutcome">bkFutureOrder</property>
+      <property
+         name="sdm:polyPoints">L54,545.9674,78.74121,438.7578,77.143555,R54</property>
    </ControlFlowCase>
 </SDM>

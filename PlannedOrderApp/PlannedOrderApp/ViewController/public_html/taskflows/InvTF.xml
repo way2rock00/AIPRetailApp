@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="InvTF">
-    <default-activity>ScanPG</default-activity>
+    <default-activity>OnhandInv</default-activity>
     <managed-bean id="__1">
       <managed-bean-name>InventoryBean</managed-bean-name>
       <managed-bean-class>deloitte.retail.mobile.beans.InventoryBean</managed-bean-class>
@@ -34,6 +34,28 @@
       <control-flow-case id="__5">
         <from-outcome>backToScan</from-outcome>
         <to-activity-id>ScanPG</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>toFutureOrder</from-outcome>
+        <to-activity-id>FutureOrder</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>FutureOrder</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>bkOnhandInv</from-outcome>
+        <to-activity-id>OnhandInv</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>toInvDt</from-outcome>
+        <to-activity-id>InventoryDetails</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>InventoryDetails</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>bkFutureOrder</from-outcome>
+        <to-activity-id>FutureOrder</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>
