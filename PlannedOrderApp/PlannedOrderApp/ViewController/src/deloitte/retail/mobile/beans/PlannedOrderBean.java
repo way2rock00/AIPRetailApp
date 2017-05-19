@@ -6,6 +6,7 @@ import deloitte.retail.mobile.utility.ServiceManager;
 
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.amx.event.ValueChangeEvent;
+import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.json.JSONObject;
 
@@ -24,6 +25,7 @@ public class PlannedOrderBean {
             
             pageNav = "loginSuccess";
             System.out.println("validated true");
+            AdfmfContainerUtilities.gotoFeature("deloitte.retail.MainMenu");
         }
         else {
             pageNav = null;
