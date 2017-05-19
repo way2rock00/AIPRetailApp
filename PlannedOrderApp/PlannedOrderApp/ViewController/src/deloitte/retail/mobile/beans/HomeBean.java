@@ -153,4 +153,11 @@ public class HomeBean {
 //        AdfmfJavaUtilities.setELValue("#{pageFlowScope.prefDeliveryMonth}",AdfmfJavaUtilities.getELValue("#{preferenceScope.application.UserSettings.DeliveryMonths}"));
 //        AdfmfJavaUtilities.setELValue("#{pageFlowScope.prefRecordLimit}",AdfmfJavaUtilities.getELValue("#{preferenceScope.application.UserSettings.RecordSize}"));
 //    }
+    public void navigateToInventoryTF(ActionEvent actionEvent) {
+       AdfmfContainerUtilities.gotoFeature("deloitte.retail.InvTF");
+    }
+    
+    public void navigateToPlannedOrderTF(ActionEvent actionEvent) {
+       AdfmfContainerUtilities.gotoFeature("deloitte.retail.Home");
+    }
 }
