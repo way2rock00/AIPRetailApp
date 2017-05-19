@@ -41,6 +41,8 @@
       <property
          name="page">/pages/OrderHeaderList.amx</property>
       <property
+         name="start">false</property>
+      <property
          name="description">&lt;html>&lt;p>&lt;b>OrderHeaderList&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
