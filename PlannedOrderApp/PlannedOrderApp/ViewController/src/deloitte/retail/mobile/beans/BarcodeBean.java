@@ -23,9 +23,11 @@ public class BarcodeBean {
         // barcode scanning function in a manner that makes it more suitable for invocation
         // from Java bean code. This is the function we are invoking below:
         System.out.println("Inside barcode bean");
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.BarcodeBean.barcodeResult}", "Test:"+AdfmfJavaUtilities.getFeatureId());
         AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
                                                                   "scanBarcodeFromJavaBean",
                                                                   new Object[] { });
+        AdfmfJavaUtilities.setELValue("#{pageFlowScope.BarcodeBean.barcodeResult}", "TestNewLine:");
     }
 
     public void setBarcodeFormat(String barcodeFormat) {
@@ -74,5 +76,9 @@ public class BarcodeBean {
 
     public void removePropertyChangeListener (PropertyChangeListener l) {
         propertyChangeSupport.removePropertyChangeListener (l);
+    }
+
+    public void test(ActionEvent actionEvent) {
+        // Add event code here...
     }
 }
