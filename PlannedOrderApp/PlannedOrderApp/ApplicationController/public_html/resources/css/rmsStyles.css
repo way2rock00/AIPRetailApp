@@ -806,3 +806,7 @@ keygen, select, select[size="0"], select[size="1"] {
 .invLOVDetails > .field-label{
     padding: 0px !important ;
 }
+
+.upcInputText{
+    border-bottom-style: solid !important;
+}
