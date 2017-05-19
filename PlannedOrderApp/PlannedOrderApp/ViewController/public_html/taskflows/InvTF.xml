@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="InvTF">
-    <default-activity>OnhandInv</default-activity>
+    <default-activity>ScanPG</default-activity>
     <managed-bean id="__1">
       <managed-bean-name>InventoryBean</managed-bean-name>
       <managed-bean-class>deloitte.retail.mobile.beans.InventoryBean</managed-bean-class>
@@ -45,7 +45,7 @@
         <to-activity-id>FutureOrder</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__7">
+    <control-flow-rule id="__12">
       <from-activity-id>FutureOrder</from-activity-id>
       <control-flow-case id="__8">
         <from-outcome>bkOnhandInv</from-outcome>

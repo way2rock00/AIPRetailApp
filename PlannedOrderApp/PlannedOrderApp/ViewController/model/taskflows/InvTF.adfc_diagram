@@ -29,9 +29,9 @@
       <property
          name="page">/pages/OnhandInv.amx</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>OnhandInv&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>OnhandInv&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -76,9 +76,9 @@
       <property
          name="page">/pages/ScanPG.amx</property>
       <property
-         name="start">false</property>
+         name="start">true</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>ScanPG&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>ScanPG&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
