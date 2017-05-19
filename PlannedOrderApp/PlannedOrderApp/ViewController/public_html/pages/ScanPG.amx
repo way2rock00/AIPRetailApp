@@ -17,7 +17,7 @@
         <amx:spacer id="s1" height="20"/>
         <amx:tableLayout id="tl4" width="100%" inlineStyle="table-layout:fixed;">
             <amx:rowLayout id="rl2">
-                <amx:cellFormat id="cf2" width="100%" halign="center" inlineStyle="padding-right:10px">
+                <amx:cellFormat id="cf2" width="100%" halign="center" inlineStyle="padding-right:15px">
                     <amx:commandButton text="Scan" id="cb111" styleClass="buttonsLarge" shortDesc="Scan"
                                        actionListener="#{pageFlowScope.BarcodeBean.scanBarcode}"
                                        inlineStyle="width:100%;height:auto;"/>
@@ -75,7 +75,7 @@
                 <amx:cellFormat id="cf5" width="5%">
                     <amx:spacer id="s5" width="5"/>
                 </amx:cellFormat>
-                <amx:cellFormat id="cf4" width="45%" halign="center" inlineStyle="padding-right:10px">
+                <amx:cellFormat id="cf4" width="45%" halign="center" inlineStyle="padding-right:15px">
                     <amx:commandButton text="Cancel" id="cb1" styleClass="buttonsLarge" shortDesc="Cancel"
                                        inlineStyle="width:100%;height:auto;"/>
                 </amx:cellFormat>
