@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <amx:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amx="http://xmlns.oracle.com/adf/mf/amx"
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-    <amx:panelPage id="pp1">
+    <amx:panelPage id="pp1">    
         <amx:tableLayout id="tl1" width="100%">
             <amx:rowLayout id="rl1">
                 <amx:cellFormat id="cf1" height="30%" valign="middle" halign="center"
