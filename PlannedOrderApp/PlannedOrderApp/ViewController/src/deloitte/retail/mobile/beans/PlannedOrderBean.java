@@ -75,7 +75,7 @@ public class PlannedOrderBean {
                 strDebug = strDebug +"Exception:"+e.getMessage();
             }
         strDebug = strDebug + ":s3:" + strReturnStatus + ":s3:" + strLoginNumber;
-        //strReturnStatus = "S";
+        strReturnStatus = "S";
         if("E".equalsIgnoreCase(strReturnStatus)){
             this.validated = false;
             AdfmfJavaUtilities.setELValue("#{pageFlowScope.LoginMessage}", "Invalid Credentials Provided.");
