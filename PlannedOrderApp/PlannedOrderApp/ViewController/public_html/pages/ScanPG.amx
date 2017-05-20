@@ -7,8 +7,8 @@
                             inlineStyle="font-size:20px;flex-wrap:wrap; overflow-wrap:break-word; text-align:center; border-bottom-width:0px; border-bottom-style:hidden; border-bottom-color:transparent;"/>
         </amx:facet>
         <amx:facet name="primary">
-            <amx:commandLink id="cl1" action="backToOrderList">
-                <amx:outputHtml id="oh1" styleClass="fa fa-arrow-left fa-1x" inlineStyle="color:#ffffff;"/>
+            <amx:commandLink id="cl134" shortDesc="menu">
+                <amx:outputHtml id="oh1" styleClass="fa fa-reorder fa-1x" inlineStyle="color:#ffffff;"/>
             </amx:commandLink>
             <!--<amx:commandLink id="cl134" shortDesc="menu">
                 <amx:outputHtml id="oh2" styleClass="fa fa-reorder fa-1x" inlineStyle="color:#ffffff;"/>
