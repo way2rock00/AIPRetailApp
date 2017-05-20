@@ -9,9 +9,12 @@
             </amx:panelGroupLayout>
         </amx:facet>
         <amx:facet name="primary">
-            <amx:commandLink id="cl134" shortDesc="menu" actionListener="#{pageFlowScope.HomeBean.springBoardEvent}">
-                <amx:outputHtml id="oh1" styleClass="fa fa-reorder fa-1x" inlineStyle="color:#ffffff;"/>
+                    <amx:commandLink id="cl1" action="backToScan">
+                <amx:outputHtml id="oh1" styleClass="fa fa-arrow-left fa-1x" inlineStyle="color:#ffffff;"/>
             </amx:commandLink>
+            <!--<amx:commandLink id="cl134" shortDesc="menu" actionListener="#{pageFlowScope.HomeBean.springBoardEvent}">
+                <amx:outputHtml id="oh1" styleClass="fa fa-reorder fa-1x" inlineStyle="color:#ffffff;"/>
+            </amx:commandLink>-->
         </amx:facet>
         <amx:facet name="secondary">
             <amx:commandButton id="cb2"/>
@@ -94,7 +97,7 @@
                         <amx:outputText value="Store Order Quantity " id="ot10" styleClass="xxRobotoGroupLabel"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf20">
-                        <amx:outputText value="2000" id="ot11" styleClass="xxRobotoFieldValue"/>
+                        <amx:commandLink text="2000" id="cl3" styleClass="xxRobotoFieldValue" />
                     </amx:cellFormat>
                 </amx:rowLayout>
                 <amx:rowLayout id="rl6">
@@ -104,7 +107,7 @@
                                         styleClass="xxRobotoGroupLabel"/>
                     </amx:cellFormat>
                     <amx:cellFormat id="cf23">
-                        <amx:outputText value="3000" id="ot14" styleClass="xxRobotoFieldValue"/>
+                        <amx:commandLink text="3000" id="cl2" styleClass="xxRobotoFieldValue" action="toFutureOrder"/>
                     </amx:cellFormat>
                 </amx:rowLayout>
                 <amx:rowLayout id="rl7">

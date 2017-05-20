@@ -7,7 +7,7 @@
                             inlineStyle="font-size:20px;flex-wrap:wrap; overflow-wrap:break-word; text-align:center; border-bottom-width:0px; border-bottom-style:hidden; border-bottom-color:transparent;"/>
         </amx:facet>
         <amx:facet name="primary">
-            <amx:commandLink id="cl1" action="backToOrderList">
+            <amx:commandLink id="cl1" action="bkOnhandInv">
                 <amx:outputHtml id="oh1" styleClass="fa fa-arrow-left fa-1x" inlineStyle="color:#ffffff;"/>
             </amx:commandLink>
             <!--<amx:commandLink id="cl134" shortDesc="menu">
@@ -72,7 +72,7 @@
                 </amx:tableLayout>
                 <amx:listView var="row" showMoreStrategy="autoScroll" bufferStrategy="viewport" id="lv1"
                                 inlineStyle="border:0px">
-                    <amx:listItem id="li1">
+                    <amx:listItem id="li1" action="toInvDt">
                 <amx:tableLayout id="tl3" width="100%" inlineStyle="padding:10px;" styleClass="invPageRow">
                     <amx:rowLayout id="rl2">
                         <amx:cellFormat id="cf4" width="50%" halign="center" styleClass="invPageCell">
