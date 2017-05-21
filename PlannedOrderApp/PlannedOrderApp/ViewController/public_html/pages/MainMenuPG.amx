@@ -34,12 +34,12 @@
             </amx:rowLayout>
             <amx:rowLayout id="rl2">
                 <amx:cellFormat id="cf3">
-                    <amx:commandButton text="Option C" id="cb4"
+                    <amx:commandButton text="Preferences" id="cb4"
                     inlineStyle="background-color:#767a78; color:White; width:165px; height: 180px; margin:3px;"/>
                 </amx:cellFormat>
                 <amx:cellFormat id="cf4">
-                    <amx:commandButton text="Preferences" id="cb5" 
-                    inlineStyle="background-color:#86ba25; color:White; width:165px; height: 180px; margin:3px;"/>
+                    <!--<amx:commandButton text="Preferences" id="cb5" 
+                    inlineStyle="background-color:#86ba25; color:White; width:165px; height: 180px; margin:3px;"/>-->
                 </amx:cellFormat>
             </amx:rowLayout>
         </amx:tableLayout>

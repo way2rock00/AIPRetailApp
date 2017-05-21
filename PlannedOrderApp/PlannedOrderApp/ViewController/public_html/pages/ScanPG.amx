@@ -52,7 +52,7 @@
         <amx:tableLayout id="tl3" width="100%" inlineStyle="table-layout:fixed;">
             <amx:rowLayout id="rl11">
                 <amx:cellFormat id="cf20" width="100%" halign="center">
-                    <amx:outputText value="Buyer" id="ot21" styleClass="xxRobotoFieldTitle"/>
+                    <amx:outputText value="Store" id="ot21" styleClass="xxRobotoFieldTitle"/>
                 </amx:cellFormat>
             </amx:rowLayout>
             <amx:rowLayout id="rl12">

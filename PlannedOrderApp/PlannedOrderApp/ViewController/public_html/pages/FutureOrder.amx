@@ -3,7 +3,7 @@
           xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
     <amx:panelPage id="pp1">
         <amx:facet name="header">
-            <amx:outputText value="Planned Order Quantities" id="ot1" styleClass="headertextwhite"
+            <amx:outputText value="Future Order Plan" id="ot1" styleClass="headertextwhite"
                             inlineStyle="font-size:20px;flex-wrap:wrap; overflow-wrap:break-word; text-align:center; border-bottom-width:0px; border-bottom-style:hidden; border-bottom-color:transparent;"/>
         </amx:facet>
         <amx:facet name="primary">
@@ -79,17 +79,41 @@
                             <amx:outputText value="11 Feb 2017" id="ot5" inlineStyle="color:#999999;"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf5" width="50%" halign="center">
-                            <amx:outputText value="Quantity" id="ot7" inlineStyle="color:#999999;"/>
+                            <amx:outputText value="200 EA" id="ot7" inlineStyle="color:#999999;"/>
                         </amx:cellFormat>
                     </amx:rowLayout>
                     <amx:rowLayout id="rl3">
                         <amx:cellFormat id="cf6" width="50%" halign="center" styleClass="invPageCell">
-                            <amx:outputText value="11 Feb 2017" id="ot13" inlineStyle="color:#999999;"/>
+                            <amx:outputText value="18 Feb 2017" id="ot13" inlineStyle="color:#999999;"/>
                         </amx:cellFormat>
                         <amx:cellFormat id="cf7" width="50%" halign="center">
-                            <amx:outputText value="Quantity" id="ot10" inlineStyle="color:#999999;"/>
+                            <amx:outputText value="125 EA" id="ot10" inlineStyle="color:#999999;"/>
                         </amx:cellFormat>
-                    </amx:rowLayout>                    
+                    </amx:rowLayout>   
+                    <amx:rowLayout id="rl8">
+                        <amx:cellFormat id="cf8" width="50%" halign="center" styleClass="invPageCell">
+                            <amx:outputText value="25 Feb 2017" id="ot14" inlineStyle="color:#999999;"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf9" width="50%" halign="center">
+                            <amx:outputText value="70 EA" id="ot16" inlineStyle="color:#999999;"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>      
+                    <amx:rowLayout id="rl9">
+                        <amx:cellFormat id="cf14" width="50%" halign="center" styleClass="invPageCell">
+                            <amx:outputText value="1 Mar 2017" id="ot17" inlineStyle="color:#999999;"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf16" width="50%" halign="center">
+                            <amx:outputText value="100 EA" id="ot18" inlineStyle="color:#999999;"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>      
+                    <amx:rowLayout id="rl10">
+                        <amx:cellFormat id="cf18" width="50%" halign="center" styleClass="invPageCell">
+                            <amx:outputText value="8 Mar 2017" id="ot19" inlineStyle="color:#999999;"/>
+                        </amx:cellFormat>
+                        <amx:cellFormat id="cf19" width="50%" halign="center">
+                            <amx:outputText value="50 EA" id="ot20" inlineStyle="color:#999999;"/>
+                        </amx:cellFormat>
+                    </amx:rowLayout>                          
                 </amx:tableLayout>
                     </amx:listItem>
                 </amx:listView>
