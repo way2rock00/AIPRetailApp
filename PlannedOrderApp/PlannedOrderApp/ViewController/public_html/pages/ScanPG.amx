@@ -81,5 +81,10 @@
                 </amx:cellFormat>
             </amx:rowLayout>
         </amx:tableLayout>
+        <!--<amx:outputText value="ItemNumber:#{pageFlowScope.itemNumber}" id="ot2"/>
+        <amx:outputText value="ItemDesc:#{pageFlowScope.itemDesc}" id="ot4"/>
+        <amx:outputText value="SubClass:#{pageFlowScope.itemSubClass}" id="ot5"/>
+        <amx:outputText value="Debug:#{pageFlowScope.strDebug}" id="ot6"/>
+        <amx:outputText value="barcodeError:#{pageFlowScope.BarcodeBean.barcodeError}" id="ot7"/>-->
     </amx:panelPage>
 </amx:view>

@@ -1,10 +1,15 @@
 package deloitte.retail.mobile.beans;
 
+import deloitte.retail.mobile.utility.RestURIs;
+
+import deloitte.retail.mobile.utility.ServiceManager;
+
 import oracle.adfmf.amx.event.ActionEvent;
 import oracle.adfmf.framework.api.AdfmfContainerUtilities;
 import oracle.adfmf.framework.api.AdfmfJavaUtilities;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
+import oracle.adfmf.json.JSONObject;
 
 public class BarcodeBean {
     private String barcodeError = "";
@@ -23,11 +28,11 @@ public class BarcodeBean {
         // barcode scanning function in a manner that makes it more suitable for invocation
         // from Java bean code. This is the function we are invoking below:
         System.out.println("Inside barcode bean");
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.BarcodeBean.barcodeResult}", "Test:"+AdfmfJavaUtilities.getFeatureId());
         AdfmfContainerUtilities.invokeContainerJavaScriptFunction(AdfmfJavaUtilities.getFeatureId(),
                                                                   "scanBarcodeFromJavaBean",
                                                                   new Object[] { });
-        AdfmfJavaUtilities.setELValue("#{pageFlowScope.BarcodeBean.barcodeResult}", "TestNewLine:");
+ 
+        
     }
 
     public void setBarcodeFormat(String barcodeFormat) {
@@ -54,6 +59,7 @@ public class BarcodeBean {
         String oldBarcodeResult = this.barcodeResult;
         this.barcodeResult = barcodeResult;
         propertyChangeSupport.firePropertyChange ("barcodeResult", oldBarcodeResult, barcodeResult);
+        findDescription();
     }
 
     public String getBarcodeResult () {
@@ -78,7 +84,55 @@ public class BarcodeBean {
         propertyChangeSupport.removePropertyChangeListener (l);
     }
 
-    public void test(ActionEvent actionEvent) {
-        // Add event code here...
+    public void findDescription() {
+        String strDebug = "S:";
+        String barcodeSuccess = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.BarcodeBean.barcodeError}");
+        String strItemNumber = (String)AdfmfJavaUtilities.getELValue("#{pageFlowScope.BarcodeBean.barcodeResult}");
+        strDebug=strDebug+"~barcodeSuccess:"+barcodeSuccess+"~+strItemNumber:"+strItemNumber;
+        if("".equals(barcodeSuccess)&&!"".equals(strItemNumber)){
+            String url = RestURIs.getScanItemDetailsURL(strItemNumber);
+            strDebug = strDebug+"~"+url;
+            ServiceManager serviceManager = new ServiceManager();
+            String jsonArrayAsString = serviceManager.invokeREAD(url); 
+            strDebug = strDebug+"~"+jsonArrayAsString;
+            try{
+                JSONObject jsonObject = new JSONObject(jsonArrayAsString);
+                JSONObject parent = jsonObject.getJSONObject("OutputParameters");
+                strDebug = strDebug+"~"+"1";
+                String returnStatus = null;
+                if (parent.getString("X_RETURN_STATUS") != null)
+                    returnStatus = parent.getString("X_RETURN_STATUS");
+                strDebug = strDebug+"~"+"2:"+returnStatus;
+                
+                String returnMsg = null;
+                if (parent.getString("X_RETURN_MSG") != null)
+                    returnMsg = parent.getString("X_RETURN_MSG");
+                strDebug = strDebug+"~"+"3:"+returnMsg;
+                
+                String desc = null;
+                if (parent.getString("P_DESC") != null)
+                    desc = parent.getString("P_DESC");
+
+                strDebug = strDebug+"~"+"4:"+desc;
+                
+                
+                String subClass = null;
+                if (parent.getString("P_SUBCLASS") != null)
+                    subClass = parent.getString("P_SUBCLASS");
+                strDebug = strDebug+"~"+"5:"+subClass;
+                
+                
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.itemNumber}",strItemNumber);
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.itemDesc}",desc );
+                AdfmfJavaUtilities.setELValue("#{pageFlowScope.itemSubClass}",subClass);
+
+               
+            }
+            catch(Exception e){
+                strDebug = strDebug +":Error:"+e.getMessage();
+            }
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.strDebug}",strDebug);
+            AdfmfJavaUtilities.setELValue("#{pageFlowScope.BarcodeBean.barcodeError}",strDebug);
+        }
     }
 }

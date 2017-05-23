@@ -22,6 +22,7 @@ public class RestURIs {
     private static String SourceURL ="/XxRpmGetPlanOrderSourceLov/GetPlanOrderSourceLovRS";
     private static String DestinationURL ="/XxRpmGetPlanOrdDestinationLov/GetPlanOrdDestinationLovRS";
     private static String SKUDetailsURL ="/XxRpmPlannedStoreDaySku/GetPlannedStoreDaySkuRS";    
+    private static String ItemDetailsURL="XxRpmGetAIPItemDetails/GetAIPItemDetails_RS";
     
     private static String ItemQtyUrl ="/XxrpmGetAIPItemQuantities/GetAIPItemQuantities_RS"; // /{P_SELLABLE_UPC}/{P_STORE_NAME}
     private static String slash="/";
@@ -73,6 +74,9 @@ public class RestURIs {
         return strURL;
     }   
     
+    public static String getScanItemDetailsURL(String strItemNumber){
+        return ItemDetailsURL +"/"+strItemNumber;
+    }
 
     public static String convertString2URLFormat(String strInput) {
         String strOutput = "";
